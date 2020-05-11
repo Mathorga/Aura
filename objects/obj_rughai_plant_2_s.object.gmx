@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>spr_prop_parent_s</parentName>
+  <parentName>obj_prop_parent_s</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -52,7 +52,7 @@ scr_find_depth_from(self.y + (TILE_HEIGHT / 2));
             <kind>1</kind>
             <string>/// Go to the target.
 
-var inst = instance_nearest(x, y, obj_player_parent);
+var inst = instance_nearest(x, y, obj_player_parent_s);
 
 if (inst != noone) {
     mp_potential_step(inst.x, inst.y, 1, false);

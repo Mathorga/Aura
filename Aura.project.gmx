@@ -1025,7 +1025,7 @@
         </objects>
       </objects>
       <objects name="Prop">
-        <object>objects\spr_prop_parent_s</object>
+        <object>objects\obj_prop_parent_s</object>
         <objects name="Rughai">
           <objects name="Interacting">
             <objects name="Chest">

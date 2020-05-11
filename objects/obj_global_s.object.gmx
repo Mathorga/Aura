@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_global_s</spriteName>
   <solid>0</solid>
-  <visible>0</visible>
+  <visible>-1</visible>
   <depth>-3000</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -221,25 +221,26 @@ self.alarm[0] = self.deactivation_delay;
             <kind>1</kind>
             <string>/// Deactivate Objects Out Of Sight
 
-//if (room_get_name(room) == "rm_rughai_r0_s") {
-    instance_activate_all();
-    instance_deactivate_region(view_xview[0] - TILE_WIDTH,
-                               view_yview[0] - TILE_HEIGHT,
-                               view_wview[0] + TILE_WIDTH,
-                               view_hview[0] + TILE_HEIGHT,
-                               false,
-                               true);
-    instance_activate_object(obj_main_collision);
-    instance_activate_object(obj_shader_controller);
-    instance_activate_object(obj_parallax_controller);
-    instance_activate_object(obj_door_parent);
-    instance_activate_object(obj_fade_to);
-    instance_activate_object(obj_player_parent);
-    instance_activate_object(obj_enemy_parent);
-    instance_activate_object(obj_view);
-//}
+var hoffset = TILE_WIDTH * 4;
+var voffset = TILE_HEIGHT * 4;
 
-self.alarm[0] = 10
+instance_activate_all();
+instance_deactivate_region(view_xview[0] - hoffset,
+                           view_yview[0] - voffset,
+                           view_wview[0] + 2 * hoffset,
+                           view_hview[0] + 2 * voffset,
+                           false,
+                           true);
+instance_activate_object(obj_collision_sensor_s);
+instance_activate_object(obj_shader_controller);
+instance_activate_object(obj_parallax_controller);
+instance_activate_object(obj_door_parent);
+instance_activate_object(obj_fade_to);
+instance_activate_object(obj_player_parent_s);
+instance_activate_object(obj_enemy_parent);
+instance_activate_object(obj_view_s);
+
+self.alarm[0] = 10;
 </string>
           </argument>
         </arguments>
@@ -462,6 +463,38 @@ application_surface_draw_enable(true);
             <string>/// Reset A signal
 
 global.A_signal = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Stuff
+
+draw_text(TILE_WIDTH, TILE_HEIGHT, string(TILE_WIDTH * 100));
+draw_text(TILE_WIDTH * 3, TILE_HEIGHT, string(TILE_HEIGHT * 100));
+
+draw_text(TILE_WIDTH, TILE_HEIGHT * 2, string(view_xview[0]));
+draw_text(TILE_WIDTH * 3, TILE_HEIGHT * 2, string(view_yview[0]));
+
+draw_text(TILE_WIDTH, TILE_HEIGHT * 3, string(view_wview[0]));
+draw_text(TILE_WIDTH * 3, TILE_HEIGHT * 3, string(view_hview[0]));
 </string>
           </argument>
         </arguments>

@@ -64,14 +64,14 @@ scr_move(self.len, self.dir);
 if (self.make_footprints && self.len > 0) {    
     switch (self.action) {
         case RUN:
-            if (floor(self.image_index) == 2 || floor(self.image_index) == 6) {
+            if (floor(self.image_index) == 5 || floor(self.image_index) == 11) {
                 create_footprint = true;
             } else {
                 create_footprint = false;
             }
             break;
         case WALK:
-            if (floor(self.image_index) == 2 || floor(self.image_index) == 6) {
+            if (floor(self.image_index) == 5 || floor(self.image_index) == 11) {
                 create_footprint = true;
             } else {
                 create_footprint = false;

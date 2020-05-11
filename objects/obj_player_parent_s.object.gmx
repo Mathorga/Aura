@@ -499,6 +499,52 @@ if (hp &lt;= 0) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Go Through Door if Met
+
+// Get any colliding door.
+var door = collision_ellipse(id.bbox_left,
+                             id.bbox_top,
+                             id.bbox_right,
+                             id.bbox_bottom,
+                             obj_door_sensor_s,
+                             false,
+                             true);
+
+if (door != noone) {
+    if (room_exists(door.new_room)) {
+        // TODO Make sure the player doesn't move when changing room.
+        
+        next_x = door.next_x;
+        next_y = door.next_y;
+        
+        id.mobility = false;
+        id.face = door.position;
+        id.dir = scr_face_to_dir(id.face);
+        id.move_spd = id.walk_spd;
+        
+        scr_fade_to_room(door.new_room, true);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_life">
       <action>
@@ -749,6 +795,29 @@ if (id.state == scr_roll_state) {
             <string>/// Unset Footprints
 
 self.footprint = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reset Mobility
+
+id.mobility = true;
 </string>
           </argument>
         </arguments>

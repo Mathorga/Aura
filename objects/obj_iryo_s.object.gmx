@@ -192,13 +192,17 @@ event_inherited();
             <string>/// Draw Stats
 
 var scale_factor = 3;
+var hoffset = TILE_WIDTH * 0.5;
+var voffset = TILE_HEIGHT * 0.5;
+var width = TILE_WIDTH * 4;
+var height = TILE_HEIGHT * 1.5;
 
 // Draw health.
 draw_set_alpha(0.5);
-draw_roundrect_colour_ext(TILE_WIDTH * 0.5 * scale_factor,
-                          TILE_HEIGHT * 0.5 * scale_factor,
-                          TILE_WIDTH * id.hp * scale_factor,
-                          TILE_HEIGHT * 1.5 * scale_factor,
+draw_roundrect_colour_ext(hoffset * scale_factor,
+                          voffset * scale_factor,
+                          hoffset + (width * (id.hp / id.maxhp)) * scale_factor,
+                          height * scale_factor,
                           0,
                           0,
                           c_green,
