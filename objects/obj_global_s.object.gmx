@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_global_s</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-3000</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -463,38 +463,6 @@ application_surface_draw_enable(true);
             <string>/// Reset A signal
 
 global.A_signal = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw Stuff
-
-draw_text(TILE_WIDTH, TILE_HEIGHT, string(TILE_WIDTH * 100));
-draw_text(TILE_WIDTH * 3, TILE_HEIGHT, string(TILE_HEIGHT * 100));
-
-draw_text(TILE_WIDTH, TILE_HEIGHT * 2, string(view_xview[0]));
-draw_text(TILE_WIDTH * 3, TILE_HEIGHT * 2, string(view_yview[0]));
-
-draw_text(TILE_WIDTH, TILE_HEIGHT * 3, string(view_wview[0]));
-draw_text(TILE_WIDTH * 3, TILE_HEIGHT * 3, string(view_hview[0]));
 </string>
           </argument>
         </arguments>
