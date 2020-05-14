@@ -80,14 +80,14 @@ sprite[LEFT, STAND] = spr_iryo_left_stand_s;
 sprite[DOWN, STAND] = spr_iryo_down_stand_s;
 
 // Walk.
-sprite[RIGHT, WALK] = spr_iryo_right_stand_s;
-sprite[UP, WALK] = spr_iryo_up_stand_s;
-sprite[LEFT, WALK] = spr_iryo_left_stand_s;
+sprite[RIGHT, WALK] = spr_iryo_right_run_s;
+sprite[UP, WALK] = spr_iryo_up_run_s;
+sprite[LEFT, WALK] = spr_iryo_left_run_s;
 sprite[DOWN, WALK] = spr_iryo_down_walk_s;
 
 // Run.
 sprite[RIGHT, RUN] = spr_iryo_right_run_s;
-sprite[UP, RUN] = spr_iryo_up_stand_s;
+sprite[UP, RUN] = spr_iryo_up_run_s;
 sprite[LEFT, RUN] = spr_iryo_left_run_s;
 sprite[DOWN, RUN] = spr_iryo_down_run_s;
 

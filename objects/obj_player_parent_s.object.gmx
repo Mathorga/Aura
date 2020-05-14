@@ -192,15 +192,15 @@ id.deadzone = 0.35;
             <kind>1</kind>
             <string>/// States
 
-self.move_state = scr_player_move_state;
-self.die_state = noone;
-self.fall_state = scr_fall_state;
-self.drown_state = scr_drown_state;
-self.idle_state = noone;
-self.wander_state = noone;
-self.chase_state = noone;
+id.move_state = scr_player_move_state;
+id.die_state = noone;
+id.fall_state = scr_fall_state;
+id.drown_state = scr_drown_state;
+id.idle_state = noone;
+id.wander_state = noone;
+id.chase_state = noone;
 
-self.state = self.move_state;
+id.state = id.move_state;
 </string>
           </argument>
         </arguments>
@@ -370,6 +370,29 @@ if ((global.shake_intensity &lt;= 0) &amp;&amp; hp &lt;= 0) {
             <string>///Inherit
 
 event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Depth Set
+
+scr_find_depth_from(id.y + (TILE_HEIGHT / 2));
 </string>
           </argument>
         </arguments>

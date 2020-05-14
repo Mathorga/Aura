@@ -61,6 +61,7 @@
             </sprites>
             <sprites name="Up">
               <sprite>sprites\spr_iryo_up_stand_s</sprite>
+              <sprite>sprites\spr_iryo_up_run_s</sprite>
             </sprites>
             <sprites name="Left">
               <sprite>sprites\spr_iryo_left_stand_s</sprite>
@@ -154,16 +155,13 @@
         </sprites>
       </sprites>
       <sprite>sprites\spr_global_s</sprite>
-      <sprite>sprites\spr_view_s</sprite>
+      <sprite>sprites\spr_camera_s</sprite>
       <sprite>sprites\spr_parent_s</sprite>
     </sprites>
     <sprites name="Lifeforms">
       <sprites name="Player">
         <sprites name="Iryo">
           <sprites name="Left">
-            <sprite>sprites\spr_iryo_left_stand</sprite>
-            <sprite>sprites\spr_iryo_left_walk</sprite>
-            <sprite>sprites\spr_iryo_left_run</sprite>
             <sprite>sprites\spr_iryo_left_roll</sprite>
             <sprite>sprites\spr_iryo_left_fall</sprite>
             <sprite>sprites\spr_iryo_left_attack_x</sprite>
@@ -173,9 +171,6 @@
             <sprite>sprites\spr_iryo_left_aim_walk_back</sprite>
           </sprites>
           <sprites name="Right">
-            <sprite>sprites\spr_iryo_right_stand</sprite>
-            <sprite>sprites\spr_iryo_right_walk</sprite>
-            <sprite>sprites\spr_iryo_right_run</sprite>
             <sprite>sprites\spr_iryo_right_roll</sprite>
             <sprite>sprites\spr_iryo_right_fall</sprite>
             <sprite>sprites\spr_iryo_right_attack_x</sprite>
@@ -185,9 +180,6 @@
             <sprite>sprites\spr_iryo_right_aim_walk_back</sprite>
           </sprites>
           <sprites name="Up">
-            <sprite>sprites\spr_iryo_up_stand</sprite>
-            <sprite>sprites\spr_iryo_up_walk</sprite>
-            <sprite>sprites\spr_iryo_up_run</sprite>
             <sprite>sprites\spr_iryo_up_roll</sprite>
             <sprite>sprites\spr_iryo_up_fall</sprite>
             <sprite>sprites\spr_iryo_up_attack_x</sprite>
@@ -196,15 +188,12 @@
           </sprites>
           <sprites name="Down">
             <sprite>sprites\spr_iryo_down_stand</sprite>
-            <sprite>sprites\spr_iryo_down_walk</sprite>
-            <sprite>sprites\spr_iryo_down_run</sprite>
             <sprite>sprites\spr_iryo_down_roll</sprite>
             <sprite>sprites\spr_iryo_down_fall</sprite>
             <sprite>sprites\spr_iryo_down_aim_stand</sprite>
             <sprite>sprites\spr_iryo_down_attack_x</sprite>
             <sprite>sprites\spr_iryo_down_attack_xx</sprite>
           </sprites>
-          <sprite>sprites\spr_iryo_inventory</sprite>
         </sprites>
         <sprites name="Aura">
           <sprites name="Left">
@@ -1019,9 +1008,16 @@
     <objects name="S">
       <objects name="Life">
         <object>objects\obj_life_parent_s</object>
+        <object>objects\obj_corpse_parent_s</object>
         <objects name="Player">
           <object>objects\obj_player_parent_s</object>
           <object>objects\obj_iryo_s</object>
+        </objects>
+        <objects name="Enemy">
+          <object>objects\obj_enemy_parent_s</object>
+          <objects name="Basic">
+            <object>objects\obj_enemy_basic_parent_s</object>
+          </objects>
         </objects>
       </objects>
       <objects name="Prop">
@@ -1105,7 +1101,7 @@
         <object>objects\obj_puddle_sensor_s</object>
       </objects>
       <object>objects\obj_global_s</object>
-      <object>objects\obj_view_s</object>
+      <object>objects\obj_camera_s</object>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>
@@ -1458,9 +1454,6 @@
       <object>objects\obj_item_slot</object>
       <object>objects\obj_grid_position</object>
       <object>objects\obj_view</object>
-      <object>objects\obj_view_old</object>
-      <object>objects\obj_alt_collider</object>
-      <object>objects\obj_main_collider</object>
       <object>objects\obj_main_damage</object>
       <object>objects\obj_alt_damage</object>
       <object>objects\obj_snow</object>
