@@ -27,10 +27,10 @@
             <kind>1</kind>
             <string>/// General
 
-self.hp = 5;
-self.footprint = noone;
-self.make_footprints = false;
-self.footprint_side = LEFT;
+id.hp = 5;
+id.footprint = noone;
+id.make_footprints = false;
+id.footprint_side = LEFT;
 
 // Conditions.
 id.climbing = false;
@@ -169,10 +169,10 @@ id.snd_fx[SNOW_FOOTSTEP, 19] = snd_footstep_snow_20;
             <string>///Execute
 
 // Execute state.
-script_execute(self.state);
+script_execute(id.state);
 
 // Set sprite according to state.
-self.sprite_index = self.sprite[self.face, self.action];
+id.sprite_index = id.sprite[id.face, id.action];
 </string>
           </argument>
         </arguments>
@@ -220,101 +220,40 @@ if (id.energy &lt; id.maxenergy){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Find Fall/Drown Sensors
-
-if (self.main_floor_fall == noone) {
-    self.main_floor_fall = instance_find(obj_fall_sensor, instance_number(obj_fall_sensor) - 1);
-}
-
-if (self.main_floor_drown == noone) {
-    self.main_floor_drown = instance_find(obj_drown_sensor, instance_number(obj_drown_sensor) - 1);
-}
-
-if (self.alt_floor_fall == noone) {
-    self.alt_floor_fall = instance_find(obj_fall_sensor, instance_number(obj_fall_sensor) - 1);
-}
-
-if (self.alt_floor_drown == noone) {
-    self.alt_floor_drown = instance_find(obj_drown_sensor, instance_number(obj_drown_sensor) - 1);
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///Behavior
 
 // Initialize climbing flag.
-if (position_meeting(self.x, self.y, obj_steps_parent)) {
-    self.climbing = true;
-    script_execute(self.mode);
+if (position_meeting(id.x, id.y, obj_steps_parent)) {
+    id.climbing = true;
+    script_execute(id.mode);
 } else {
-    self.climbing = false;
+    id.climbing = false;
 }
 
-if (self.on_alt_floor) {
-    // Initialize falling flag.
-    if (position_meeting(self.x, self.y, self.alt_floor_fall)) {
-        self.falling = true;
-        
-        // Run mode asynchronously in order to trigger fall even in the middle of another state.
-        script_execute(self.mode);
-    } else {
-        // Reset falling flag.
-        self.falling = false;
-    }
+// Initialize falling flag.
+if (position_meeting(id.x, id.y, id.main_floor_fall)) {
+    id.falling = true;
     
-    // Initialize drowning flag.
-    if (position_meeting(self.x, self.y, self.alt_floor_drown)) {
-        self.drowning = true;
-        
-        // Run mode asynchronously in order to trigger drown even in the middle of another state.
-        script_execute(self.mode);
-    } else {
-        // Reset drowning flag.
-        self.drowning = false;
-    }
+    // Run mode asynchronously in order to trigger fall even in the middle of another state.
+    script_execute(id.mode);
 } else {
-    // Initialize falling flag.
-    if (position_meeting(self.x, self.y, self.main_floor_fall)) {
-        self.falling = true;
-        
-        // Run mode asynchronously in order to trigger fall even in the middle of another state.
-        script_execute(self.mode);
-    } else {
-        self.falling = false;
-    }
+    id.falling = false;
+}
+
+// Initialize drowning flag.
+if (position_meeting(id.x, id.y, id.main_floor_drown)) {
+    id.drowning = true;
     
-    // Initialize drowning flag.
-    if (position_meeting(self.x, self.y, self.main_floor_drown)) {
-        self.drowning = true;
-        
-        // Run mode asynchronously in order to trigger drown even in the middle of another state.
-        script_execute(self.mode);
-    } else {
-        // Reset drowning flag.
-        self.drowning = false;
-    }
+    // Run mode asynchronously in order to trigger drown even in the middle of another state.
+    script_execute(id.mode);
+} else {
+    // Reset drowning flag.
+    id.drowning = false;
 }
 
 // Check hp and run mode asynchronously in order to trigger death even in the middle of another state.
-if (self.hp &lt;= 0) {
-    script_execute(self.mode);
+if (id.hp &lt;= 0) {
+    script_execute(id.mode);
 }
 </string>
           </argument>

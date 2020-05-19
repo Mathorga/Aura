@@ -1,18 +1,16 @@
 ///scr_enemy_worm_set_chase_state()
 
-if (self.state != self.chase_state) {
-    var next_step = self.tile_position.next;
-    
+if (id.state != id.chase_state) {    
     // Set action.
-    self.action = RUN;
+    id.action = RUN;
     
     // Set direction of movement and facing.
-    self.dir = point_direction(self.x, self.y, next_step.x, next_step.y);
-    self.face = scr_dir_to_face(self.dir);
+    id.dir = point_direction(id.x, id.y, id.target.x, id.target.y);
+    id.face = scr_dir_to_face(id.dir);
     
     // Set movement speed.
-    self.len = self.run_spd;
+    id.len = id.run_spd;
     
     // Set state.
-    self.state = self.chase_state;
+    id.state = id.chase_state;
 }

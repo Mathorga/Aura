@@ -65,13 +65,18 @@
             </sprites>
             <sprites name="Left">
               <sprite>sprites\spr_iryo_left_stand_s</sprite>
+              <sprite>sprites\spr_iryo_left_walk_s</sprite>
               <sprite>sprites\spr_iryo_left_run_s</sprite>
             </sprites>
             <sprites name="Right">
               <sprite>sprites\spr_iryo_right_stand_s</sprite>
+              <sprite>sprites\spr_iryo_right_walk_s</sprite>
               <sprite>sprites\spr_iryo_right_run_s</sprite>
             </sprites>
           </sprites>
+        </sprites>
+        <sprites name="Enemy">
+          <sprite>sprites\spr_grof</sprite>
         </sprites>
       </sprites>
       <sprites name="Prop">
@@ -412,14 +417,6 @@
       <sprites name="Rughai">
         <sprites name="Rooms">
           <sprites name="R1">
-            <sprite>sprites\spr_rughai_r1_floor_sensor</sprite>
-            <sprite>sprites\spr_rughai_r1_floor</sprite>
-            <sprite>sprites\spr_rughai_r1_fall</sprite>
-            <sprite>sprites\spr_rughai_r1_alt_floor</sprite>
-            <sprite>sprites\spr_rughai_r1_alt_fall</sprite>
-            <sprite>sprites\spr_rughai_r1_alt_floor_sensor</sprite>
-            <sprite>sprites\spr_rughai_r1_alt_wall</sprite>
-            <sprite>sprites\spr_rughai_r1_border</sprite>
             <sprites name="Real Prop">
               <sprite>sprites\spr_rughai_r1_helmet</sprite>
               <sprite>sprites\spr_rughai_r1_pot</sprite>
@@ -481,9 +478,6 @@
             </sprites>
           </sprites>
           <sprites name="R2">
-            <sprite>sprites\spr_rughai_r2_floor</sprite>
-            <sprite>sprites\spr_rughai_r2_fall</sprite>
-            <sprite>sprites\spr_rughai_r2_border</sprite>
             <sprites name="Real Prop">
               <sprite>sprites\spr_rughai_r2_platform</sprite>
               <sprite>sprites\spr_rughai_r2_treetrunk</sprite>
@@ -530,9 +524,6 @@
             </sprites>
           </sprites>
           <sprites name="R0">
-            <sprite>sprites\spr_rughai_r0_floor</sprite>
-            <sprite>sprites\spr_rughai_r0_fall</sprite>
-            <sprite>sprites\spr_rughai_r0_border</sprite>
             <sprites name="Real Prop">
               <sprite>sprites\spr_rughai_r0_tree_0</sprite>
               <sprite>sprites\spr_rughai_r0_tree_1</sprite>
@@ -550,44 +541,7 @@
         <sprite>sprites\spr_rughai_plant_pot</sprite>
         <sprite>sprites\spr_rughai_box</sprite>
       </sprites>
-      <sprites name="Luminata">
-        <sprites name="R1">
-          <sprite>sprites\spr_luminata_r1_columns</sprite>
-          <sprite>sprites\spr_luminata_r1_roof</sprite>
-          <sprite>sprites\spr_luminata_r1_wall</sprite>
-          <sprite>sprites\spr_luminata_r1_base_1</sprite>
-          <sprite>sprites\spr_luminata_r1_floor_1</sprite>
-          <sprite>sprites\spr_luminata_r1_base_2</sprite>
-          <sprite>sprites\spr_luminata_r1_floor_2</sprite>
-          <sprite>sprites\spr_luminata_r1_steps</sprite>
-          <sprite>sprites\spr_luminata_r1_walking_floor</sprite>
-        </sprites>
-        <sprites name="RI1">
-          <sprite>sprites\spr_luminata_ri1_floor</sprite>
-          <sprite>sprites\spr_luminata_ri1_walking_floor</sprite>
-          <sprite>sprites\spr_luminata_ri1_floor_trap</sprite>
-        </sprites>
-        <sprites name="R2">
-          <sprite>sprites\spr_luminata_r2_columns</sprite>
-          <sprite>sprites\spr_luminata_r2_roof</sprite>
-          <sprite>sprites\spr_luminata_r2_wall</sprite>
-        </sprites>
-      </sprites>
       <sprites name="Shieva">
-        <sprites name="Rooms">
-          <sprites name="R1">
-            <sprite>sprites\spr_shieva_r1_drown</sprite>
-          </sprites>
-          <sprites name="R2">
-            <sprite>sprites\spr_shieva_r2_drown</sprite>
-          </sprites>
-          <sprites name="R3">
-            <sprite>sprites\spr_shieva_r3_drown</sprite>
-          </sprites>
-          <sprites name="R4">
-            <sprite>sprites\spr_shieva_r4_drown</sprite>
-          </sprites>
-        </sprites>
         <sprites name="Bridge 0">
           <sprite>sprites\spr_shieva_bridge_0</sprite>
           <sprite>sprites\spr_shieva_bridge_0_up_left</sprite>
@@ -724,7 +678,6 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bg_title</background>
     <backgrounds name="S">
       <backgrounds name="Rughai">
         <backgrounds name="0">
@@ -749,35 +702,6 @@
           <background>background\bg_shieva_0_4</background>
         </backgrounds>
         <background>background\bg_shieva_out_tileset_s</background>
-      </backgrounds>
-    </backgrounds>
-    <backgrounds name="Rughai">
-      <backgrounds name="R1">
-        <background>background\bg_rughai_r1_base</background>
-      </backgrounds>
-      <background>background\bg_rughai_parallax</background>
-    </backgrounds>
-    <backgrounds name="Shieva">
-      <backgrounds name="R1">
-        <background>background\bg_shieva_r1_base</background>
-      </backgrounds>
-      <backgrounds name="R2">
-        <background>background\bg_shieva_r2_base</background>
-      </backgrounds>
-      <backgrounds name="R3">
-        <background>background\bg_shieva_r3_base</background>
-      </backgrounds>
-      <backgrounds name="R4">
-        <background>background\bg_shieva_r4_base</background>
-      </backgrounds>
-    </backgrounds>
-    <backgrounds name="Luminata">
-      <backgrounds name="R1">
-        <background>background\bg_luminata_r1_fore</background>
-      </backgrounds>
-      <backgrounds name="R2">
-        <background>background\luminata_r2_main_1</background>
-        <background>background\luminata_r2_main_2</background>
       </backgrounds>
     </backgrounds>
   </backgrounds>
@@ -980,9 +904,6 @@
     <script>scripts\scr_draw_shadow.gml</script>
     <script>scripts\scr_enemy_draw_healthbar.gml</script>
     <script>scripts\scr_draw_surface.gml</script>
-    <scripts name="TEST">
-      <script>scripts\scr_test_move.gml</script>
-    </scripts>
     <scripts name="movement_and_collision">
       <script>scripts\movement_and_collision.gml</script>
       <script>scripts\wall_escape.gml</script>
@@ -1015,6 +936,10 @@
         </objects>
         <objects name="Enemy">
           <object>objects\obj_enemy_parent_s</object>
+          <objects name="Worm">
+            <object>objects\obj_enemy_worm_parent_s</object>
+            <object>objects\obj_grof</object>
+          </objects>
           <objects name="Basic">
             <object>objects\obj_enemy_basic_parent_s</object>
           </objects>
@@ -1160,14 +1085,6 @@
         <object>objects\obj_candle_0</object>
         <objects name="Rughai">
           <objects name="R1">
-            <object>objects\obj_rughai_r1_floor_sensor</object>
-            <object>objects\obj_rughai_r1_floor</object>
-            <object>objects\obj_rughai_r1_fall</object>
-            <object>objects\obj_rughai_r1_alt_floor_sensor</object>
-            <object>objects\obj_rughai_r1_alt_floor</object>
-            <object>objects\obj_rughai_r1_alt_fall</object>
-            <object>objects\obj_rughai_r1_alt_wall</object>
-            <object>objects\obj_rughai_r1_border</object>
             <objects name="Real Prop">
               <objects name="Shelter">
                 <object>objects\obj_rughai_r1_shelter</object>
@@ -1229,9 +1146,6 @@
             </objects>
           </objects>
           <objects name="R2">
-            <object>objects\obj_rughai_r2_floor</object>
-            <object>objects\obj_rughai_r2_fall</object>
-            <object>objects\obj_rughai_r2_border</object>
             <objects name="Real Prop">
               <object>objects\obj_rughai_r2_platform</object>
               <object>objects\obj_rughai_r2_shaft</object>
@@ -1276,9 +1190,6 @@
             </objects>
           </objects>
           <objects name="R0">
-            <object>objects\obj_rughai_r0_floor</object>
-            <object>objects\obj_rughai_r0_fall</object>
-            <object>objects\obj_rughai_r0_border</object>
             <objects name="Real Prop">
               <object>objects\obj_rughai_r0_tree_0</object>
               <object>objects\obj_rughai_r0_tree_1</object>
@@ -1294,61 +1205,6 @@
           <object>objects\obj_rughai_plant_box</object>
           <object>objects\obj_rughai_cloth_stand_0</object>
           <object>objects\obj_rughai_cloth_stand_1</object>
-        </objects>
-        <objects name="Luminata">
-          <objects name="R1">
-            <object>objects\obj_luminata_r1_columns</object>
-            <object>objects\obj_luminata_r1_wall</object>
-            <object>objects\obj_luminata_r1_roof</object>
-            <object>objects\obj_luminata_r1_base_1</object>
-            <object>objects\obj_luminata_r1_floor_1</object>
-            <object>objects\obj_luminata_r1_base_2</object>
-            <object>objects\obj_luminata_r1_floor_2</object>
-            <object>objects\obj_luminata_r1_walking_floor</object>
-            <object>objects\obj_luminata_r1_steps</object>
-          </objects>
-          <objects name="RI1">
-            <object>objects\obj_luminata_ri1_floor</object>
-            <object>objects\obj_luminata_ri1_walking_floor</object>
-            <object>objects\obj_luminata_ri1_floor_trap</object>
-          </objects>
-          <objects name="R2">
-            <object>objects\obj_luminata_r2_columns</object>
-            <object>objects\obj_luminata_r2_wall</object>
-            <object>objects\obj_luminata_r2_roof</object>
-          </objects>
-        </objects>
-        <objects name="Shieva">
-          <objects name="R1">
-            <object>objects\obj_shieva_r1_drown</object>
-          </objects>
-          <objects name="R2">
-            <object>objects\obj_shieva_r2_drown</object>
-          </objects>
-          <objects name="R3">
-            <object>objects\obj_shieva_r3_drown</object>
-          </objects>
-          <objects name="R4">
-            <object>objects\obj_shieva_r4_drown</object>
-          </objects>
-          <object>objects\obj_shieva_grass_tall</object>
-          <object>objects\obj_shieva_bamboo_0</object>
-          <object>objects\obj_shieva_boulder_0</object>
-          <object>objects\obj_shieva_boulder_1</object>
-          <object>objects\obj_shieva_shroom_0</object>
-          <object>objects\obj_shieva_shroom_1</object>
-          <object>objects\obj_shieva_shroom_2</object>
-          <object>objects\obj_shieva_shroom_stain</object>
-          <object>objects\obj_shieva_tree_0</object>
-          <object>objects\obj_shieva_tree_1</object>
-          <object>objects\obj_shieva_skull_0</object>
-          <objects name="Bridge_0">
-            <object>objects\obj_shieva_bridge_0</object>
-            <object>objects\obj_shieva_bridge_0_up_left</object>
-            <object>objects\obj_shieva_bridge_0_up_right</object>
-            <object>objects\obj_shieva_bridge_0_down_left</object>
-            <object>objects\obj_shieva_bridge_0_down_right</object>
-          </objects>
         </objects>
       </objects>
       <objects name="Interacting">
@@ -1466,15 +1322,6 @@
     <object>objects\obj_options_manager</object>
     <object>objects\obj_expr</object>
     <object>objects\obj_life</object>
-    <objects name="TEST">
-      <object>objects\obj_test_iryo</object>
-      <object>objects\obj_test_collision</object>
-      <object>objects\obj_test_collision_2</object>
-      <object>objects\obj_test_collision_3</object>
-      <object>objects\obj_test_collision_4</object>
-      <object>objects\obj_test_collision_5</object>
-      <object>objects\obj_test_collision_6</object>
-    </objects>
   </objects>
   <rooms name="rooms">
     <rooms name="StartingRoom">
