@@ -162,6 +162,7 @@
       <sprite>sprites\spr_global_s</sprite>
       <sprite>sprites\spr_camera_s</sprite>
       <sprite>sprites\spr_parent_s</sprite>
+      <sprite>sprites\spr_controller_s</sprite>
     </sprites>
     <sprites name="Lifeforms">
       <sprites name="Player">
@@ -737,6 +738,7 @@
       <scripts name="Pathfinding">
         <script>scripts\scr_astar.gml</script>
         <script>scripts\scr_bfs.gml</script>
+        <script>scripts\scr_define_path.gml</script>
       </scripts>
       <scripts name="Debug">
         <script>scripts\scr_debug_print.gml</script>
@@ -947,6 +949,7 @@
       </objects>
       <objects name="Prop">
         <object>objects\obj_prop_parent_s</object>
+        <object>objects\obj_prop_solid_parent_s</object>
         <objects name="Rughai">
           <objects name="Interacting">
             <objects name="Chest">

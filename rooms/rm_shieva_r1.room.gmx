@@ -31,7 +31,7 @@
     <yoffset>0</yoffset>
   </makerSettings>
   <backgrounds>
-    <background visible="-1" foreground="0" name="&lt;undefined&gt;" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
+    <background visible="-1" foreground="0" name="" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="0" vtiled="0" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -59,12 +59,8 @@
     <instance objName="obj_view" x="40" y="280" name="inst_ED66CDDB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_inventory_controller" x="40" y="400" name="inst_6F96F15E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="540" y="560" name="inst_3D5DD36A" locked="0" code="next_x = 40;&#xA;next_y = 530;&#xA;new_room = rm_shieva_r2;&#xA;position = RIGHT;&#xA;" scaleX="2" scaleY="8" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="0" y="0" name="inst_BFBF4171" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="540" y="80" name="inst_8F5A815A" locked="0" code="next_x = 40;&#xA;next_y = 130;&#xA;new_room = rm_shieva_r2;&#xA;position = RIGHT;" scaleX="2" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="obj_door" x="340" y="-20" name="inst_B5575AF9" locked="0" code="next_x = 440;&#xA;next_y = 600;&#xA;new_room = rm_shieva_r3;&#xA;position = UP;&#xA;" scaleX="6" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="280" y="400" name="inst_2438BBB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="440" y="500" name="inst_AA4380DB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="280" y="560" name="inst_3AF4608C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

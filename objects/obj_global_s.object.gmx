@@ -3,7 +3,7 @@
   <spriteName>spr_global_s</spriteName>
   <solid>0</solid>
   <visible>0</visible>
-  <depth>-3000</depth>
+  <depth>0</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -202,6 +202,30 @@ self.alarm[0] = self.deactivation_delay;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Motion Planning
+
+// Define the pathfinding grid.
+global.ai_grid = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="0">
       <action>
@@ -373,6 +397,29 @@ instance_activate_all();
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy MP Grid
+
+mp_grid_destroy(global.ai_grid);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="7" enumb="4">
       <action>
@@ -464,6 +511,37 @@ application_surface_draw_enable(true);
             <string>/// Reset A signal
 
 global.A_signal = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create MP Grid
+
+var cols_num = room_width / TILE_WIDTH;
+var rows_num = room_height / TILE_HEIGHT;
+
+// Create the pathfinding grid.
+global.ai_grid = mp_grid_create(0, 0, cols_num, rows_num, TILE_WIDTH, TILE_HEIGHT);
+
+// Add walls.
+mp_grid_add_instances(global.ai_grid, obj_collision_sensor_s, false);
+mp_grid_add_instances(global.ai_grid, obj_prop_solid_parent_s, false);
 </string>
           </argument>
         </arguments>
