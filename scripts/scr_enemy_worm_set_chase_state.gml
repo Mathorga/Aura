@@ -13,4 +13,14 @@ if (id.state != id.chase_state) {
     
     // Set state.
     id.state = id.chase_state;
+    
+    // Populate the path.
+    scr_define_path(id.x, id.y, id.target.x, id.target.y);
+    
+    // Set the initial position on the path.
+    id.ai_path_pos = 1;
+    
+    // Set the coordinate to go to.
+    id.next_x = path_get_point_x(id.ai_path, id.ai_path_pos);
+    id.next_y = path_get_point_y(id.ai_path, id.ai_path_pos);
 }

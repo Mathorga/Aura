@@ -146,6 +146,13 @@ id.attacks = ds_list_create();
             <string>/// Create MP Path
 
 id.ai_path = path_add();
+
+// Set the initial position on the path.
+id.ai_path_pos = 1;
+
+// Set coordinates to go to.
+id.next_x = id.x;
+id.next_y = id.y;
 </string>
           </argument>
         </arguments>

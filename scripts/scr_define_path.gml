@@ -1,10 +1,9 @@
-///scr_define_path(path, start_x, start_y, end_x, end_y)
+///scr_define_path(start_x, start_y, end_x, end_y)
 
-var path = argument[0];
-var start_x = argument[1];
-var start_y = argument[2];
-var end_x = argument[3];
-var end_y = argument[4];
+var start_x = argument[0];
+var start_y = argument[1];
+var end_x = argument[2];
+var end_y = argument[3];
 
 var res = false;
 
