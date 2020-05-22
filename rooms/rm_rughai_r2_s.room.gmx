@@ -141,16 +141,17 @@
     <instance objName="obj_door_sensor_s" x="576" y="440" name="inst_245C01C2" locked="0" code="next_x = x;&#xA;next_y = 0;&#xA;new_room = rm_rughai_r0_s;&#xA;position = DOWN;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
-    <tile bgName="bg_rughai_out_tileset_s" x="352" y="374" w="32" h="22" xo="288" yo="22" id="10002922" name="inst_6418F701" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rughai_out_tileset_s" x="352" y="396" w="32" h="22" xo="288" yo="22" id="10002923" name="inst_466E639A" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rughai_out_tileset_s" x="352" y="418" w="32" h="22" xo="288" yo="22" id="10002924" name="inst_AA6AAA7A" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rughai_out_tileset_s" x="384" y="396" w="32" h="22" xo="288" yo="22" id="10002925" name="inst_F0F36C82" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rughai_out_tileset_s" x="384" y="418" w="32" h="22" xo="288" yo="22" id="10002926" name="inst_4035178F" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rughai_out_tileset_s" x="416" y="418" w="32" h="22" xo="288" yo="22" id="10002977" name="inst_BF549171" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rughai_out_tileset_s" x="384" y="352" w="32" h="22" xo="288" yo="22" id="10003008" name="inst_510D2FC0" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bg_rughai_out_tileset_s" x="384" y="374" w="32" h="22" xo="288" yo="22" id="10003009" name="inst_5D9663E1" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rughai_out_tileset_s" x="416" y="396" w="32" h="22" xo="288" yo="22" id="10003010" name="inst_02F2C362" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rughai_out_tileset_s" x="416" y="374" w="32" h="22" xo="288" yo="22" id="10003011" name="inst_21CEFDC2" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="352" y="352" w="32" h="22" xo="192" yo="88" id="10009896" name="inst_C185ED62" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="352" y="374" w="32" h="22" xo="192" yo="88" id="10009897" name="inst_ABD0A9C0" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="352" y="396" w="32" h="22" xo="192" yo="88" id="10009898" name="inst_E265B20F" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="352" y="418" w="32" h="22" xo="192" yo="88" id="10009899" name="inst_44A63D13" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="384" y="374" w="32" h="22" xo="192" yo="88" id="10009900" name="inst_782AA142" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="384" y="396" w="32" h="22" xo="192" yo="88" id="10009901" name="inst_13F10ADC" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bg_rughai_out_tileset_s" x="384" y="418" w="32" h="22" xo="192" yo="88" id="10009902" name="inst_231A69B0" depth="1000002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="" x="384" y="44" w="16" h="16" xo="0" yo="0" id="10001252" name="inst_95A2738B" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="" x="448" y="44" w="16" h="16" xo="0" yo="0" id="10001253" name="inst_5801C1A2" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bg_rughai_out_tileset_s" x="320" y="396" w="32" h="22" xo="224" yo="0" id="10002965" name="inst_A49D0AEB" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
