@@ -330,6 +330,43 @@ switch (id.state) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Grid
+
+if (keyboard_check(vk_f1)) {
+    draw_set_alpha(0.1);
+    draw_set_colour(c_white);
+    mp_grid_draw(global.ai_grid);
+    for (var i = 0; i &lt; room_width; i += TILE_WIDTH;) {
+        draw_line_width(i, 0, i, room_height, 3);
+    }
+    for (var j = 0; j &lt; room_width; j += TILE_HEIGHT;) {
+        draw_line_width(0, j, room_width, j, 3);
+    }
+    draw_set_alpha(1);
+    draw_path(id.ai_path, x, y, true);
+}   
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>

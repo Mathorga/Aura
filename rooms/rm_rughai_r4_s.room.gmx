@@ -97,7 +97,7 @@
     <instance objName="obj_collision_sensor_s" x="800" y="264" name="inst_B1AB6333" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="800" y="242" name="inst_611D2027" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="800" y="220" name="inst_6BFD3C38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_sensor_s" x="-32" y="264" name="inst_7446E314" locked="0" code="next_x = 800 - TILE_WIDTH;&#xA;next_y = y;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_sensor_s" x="-32" y="264" name="inst_7446E314" locked="0" code="next_x = 800 - TILE_WIDTH / 2;&#xA;next_y = y + TILE_HEIGHT / 2;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="-64" y="242" name="inst_4EADE204" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="-96" y="242" name="inst_B31777B9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="-128" y="264" name="inst_6CE00002" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -190,9 +190,9 @@
     <instance objName="obj_rughai_plant_0_s" x="0" y="0" name="inst_6EA53349" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rughai_plant_4_s" x="0" y="22" name="inst_2B447572" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_rughai_plant_4_s" x="32" y="22" name="inst_8D88023E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_sensor_s" x="-32" y="308" name="inst_28B28096" locked="0" code="next_x = 800 - TILE_WIDTH;&#xA;next_y = y;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_sensor_s" x="-32" y="330" name="inst_F315A04D" locked="0" code="next_x = 800 - TILE_WIDTH;&#xA;next_y = y;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_door_sensor_s" x="-32" y="286" name="inst_0EF225BC" locked="0" code="next_x = 800 - TILE_WIDTH;&#xA;next_y = y;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_sensor_s" x="-32" y="286" name="inst_3C7D0367" locked="0" code="next_x = 800 - TILE_WIDTH / 2;&#xA;next_y = y + TILE_HEIGHT / 2;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_sensor_s" x="-32" y="308" name="inst_9588A765" locked="0" code="next_x = 800 - TILE_WIDTH / 2;&#xA;next_y = y + TILE_HEIGHT / 2;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_door_sensor_s" x="-32" y="330" name="inst_F71E921C" locked="0" code="next_x = 800 - TILE_WIDTH / 2;&#xA;next_y = y + TILE_HEIGHT / 2;&#xA;new_room = rm_rughai_r1_s;&#xA;position = LEFT;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="" x="384" y="44" w="16" h="16" xo="0" yo="0" id="10001252" name="inst_95A2738B" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

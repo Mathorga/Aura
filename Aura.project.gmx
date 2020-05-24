@@ -1329,7 +1329,6 @@
   <rooms name="rooms">
     <rooms name="StartingRoom">
       <room>rooms\rm_rughai_r0_iryo_s</room>
-      <room>rooms\rm_test</room>
       <room>rooms\rm_rughai_r2_iryo</room>
     </rooms>
     <rooms name="S">

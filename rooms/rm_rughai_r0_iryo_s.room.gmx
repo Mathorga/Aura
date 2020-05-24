@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="obj_global_s" x="0" y="0" name="inst_F64DA7D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_iryo_s" x="288" y="220" name="inst_A3886797" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_iryo_s" x="320" y="242" name="inst_A3886797" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_camera_s" x="0" y="22" name="inst_02DCD406" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_bed_0_s" x="352" y="154" name="inst_0ED31F54" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_collision_sensor_s" x="288" y="132" name="inst_ED97FF04" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
