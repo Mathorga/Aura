@@ -50,15 +50,18 @@ event_inherited();
             <kind>1</kind>
             <string>///General
 
-self.mobility = true;
-self.x_start = x;
-self.y_start = y;
-self.interacting_sight = 15;
-self.make_footprints = true;
+id.mobility = true;
+id.x_start = x;
+id.y_start = y;
+id.interacting_sight = 15;
+id.make_footprints = true;
 
 // Coordinates for the next room.
-self.next_x = x_start;
-self.next_y = y_start;
+id.next_x = x_start;
+id.next_y = y_start;
+
+// Door collision flag.
+id.in_door = false;
 </string>
           </argument>
         </arguments>
@@ -528,17 +531,20 @@ var door = collision_ellipse(id.bbox_left,
 
 if (door != noone) {
     if (room_exists(door.new_room)) {
-        // TODO Make sure the player doesn't move when changing room.
-        
-        next_x = door.next_x;
-        next_y = door.next_y;
-        
-        id.mobility = false;
-        id.face = door.position;
-        id.dir = scr_face_to_dir(id.face);
-        id.move_spd = id.walk_spd;
-        
-        scr_fade_to_room(door.new_room, true);
+        if (!id.in_door) {
+            // TODO Make sure the player doesn't move when changing room.
+            
+            id.next_x = door.next_x;
+            id.next_y = door.next_y;
+            
+            id.mobility = false;
+            id.face = door.position;
+            id.dir = scr_face_to_dir(id.face);
+            id.move_spd = id.walk_spd;
+            id.in_door = true;
+            
+            scr_fade_to_room(door.new_room, true);
+        }
     }
 }
 </string>
@@ -818,6 +824,29 @@ self.footprint = noone;
             <string>/// Reset Mobility
 
 id.mobility = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set Outside of Doors
+
+id.in_door = false;
 </string>
           </argument>
         </arguments>
