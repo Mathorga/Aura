@@ -61,6 +61,7 @@
             </sprites>
             <sprites name="Up">
               <sprite>sprites\spr_iryo_up_stand_s</sprite>
+              <sprite>sprites\spr_iryo_up_walk_s</sprite>
               <sprite>sprites\spr_iryo_up_run_s</sprite>
             </sprites>
             <sprites name="Left">
