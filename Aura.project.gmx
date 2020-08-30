@@ -725,6 +725,10 @@
         <script>scripts\scr_inventory_gamepad.gml</script>
         <script>scripts\scr_inventory_keyboard.gml</script>
       </scripts>
+      <scripts name="Start Menu">
+        <script>scripts\scr_start_menu_gamepad.gml</script>
+        <script>scripts\scr_start_menu_keyboard.gml</script>
+      </scripts>
       <scripts name="Shaders">
         <script>scripts\scr_set_shader_uniform.gml</script>
       </scripts>
