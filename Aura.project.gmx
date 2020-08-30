@@ -924,6 +924,7 @@
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
+    <font>fonts\fnt_title</font>
     <font>fonts\fnt_debug</font>
     <font>fonts\fnt_dialog</font>
     <font>fonts\fnt_hud2</font>
@@ -1031,6 +1032,7 @@
       </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
+      <object>objects\obj_start_menu_controller</object>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>
@@ -1328,52 +1330,23 @@
     <object>objects\obj_life</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start_menu</room>
     <rooms name="StartingRoom">
       <room>rooms\rm_rughai_r0_iryo_s</room>
-      <room>rooms\rm_rughai_r2_iryo</room>
-    </rooms>
-    <rooms name="S">
-      <rooms name="Rughai">
-        <room>rooms\rm_rughai_r0_s</room>
-        <room>rooms\rm_rughai_r1_s</room>
-        <room>rooms\rm_rughai_r2_s</room>
-        <room>rooms\rm_rughai_r3_s</room>
-        <room>rooms\rm_rughai_r3_gothar_s</room>
-        <room>rooms\rm_rughai_r4_s</room>
-        <room>rooms\rm_rughai_r5_s</room>
-        <room>rooms\rm_rughai_r6_s</room>
-        <room>rooms\rm_rughai_r7_s</room>
-      </rooms>
-      <rooms name="Shieva">
-        <room>rooms\rm_shieva_r0_s</room>
-      </rooms>
     </rooms>
     <rooms name="Rughai">
-      <rooms name="R1">
-        <room>rooms\rm_rughai_r1</room>
-        <room>rooms\rm_rughai_r1_tent_0</room>
-        <room>rooms\rm_rughai_r1_shelter</room>
-      </rooms>
-      <rooms name="R2">
-        <room>rooms\rm_rughai_r2</room>
-      </rooms>
-      <rooms name="R3">
-        <room>rooms\rm_rughai_r3_mirna</room>
-      </rooms>
-      <rooms name="R0">
-        <room>rooms\rm_rughai_r0</room>
-      </rooms>
+      <room>rooms\rm_rughai_r0_s</room>
+      <room>rooms\rm_rughai_r1_s</room>
+      <room>rooms\rm_rughai_r2_s</room>
+      <room>rooms\rm_rughai_r3_s</room>
+      <room>rooms\rm_rughai_r3_gothar_s</room>
+      <room>rooms\rm_rughai_r4_s</room>
+      <room>rooms\rm_rughai_r5_s</room>
+      <room>rooms\rm_rughai_r6_s</room>
+      <room>rooms\rm_rughai_r7_s</room>
     </rooms>
     <rooms name="Shieva">
-      <room>rooms\rm_shieva_r1</room>
-      <room>rooms\rm_shieva_r2</room>
-      <room>rooms\rm_shieva_r3</room>
-      <room>rooms\rm_shieva_r4</room>
-    </rooms>
-    <rooms name="Luminata">
-      <room>rooms\rm_luminata_r1</room>
-      <room>rooms\rm_luminata_ri1</room>
-      <room>rooms\rm_luminata_r2</room>
+      <room>rooms\rm_shieva_r0_s</room>
     </rooms>
     <room>rooms\rm_start</room>
     <room>rooms\rm_title</room>
