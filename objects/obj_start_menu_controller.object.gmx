@@ -27,15 +27,47 @@
             <kind>1</kind>
             <string>///Initialize
 
-alpha_increment = 0.1;  // The increment in alpha when opening/closing the menu.
-alpha = 0;              // Controls the alpha value of the inventory menu.
+// The increment in alpha when opening/closing the menu.
+id.alpha_increment = 0.1;
+
+// Alpha value of the whole menu.
+id.alpha = 0;
+id.min_text_scale = 0.86;
+id.max_text_scale = 1;
+id.min_text_scale_speed = 0.01;
+id.max_text_scale_speed = 0.05;
+id.text_scale_accel = 0.02;
 
 // Input variables.
-right = false;
-left = false;
-up = false;
-down = false;
-select = false;
+id.right = false;
+id.left = false;
+id.up = false;
+id.down = false;
+id.select = false;
+
+id.entries_num = 3;
+
+id.slots_num = id.entries_num + 3;
+
+id.x_unit = room_width / 8;
+id.y_unit = room_height / slots_num;
+id.x_center = room_width / 2;
+id.y_center = room_height / 2;
+
+id.entries_text[0] = "Continue";
+id.entries_text[1] = "New Game";
+id.entries_text[2] = "Settings";
+
+// 2 slots are taken by the title.
+var full_slots_num = 3;
+
+// Coordinates of all menu entries.
+for (i = 0; i &lt; entries_num; i++) {
+    id.entries_scale[i] = id.min_text_scale;
+    id.entries_scale_speed[i] = id.max_text_scale_speed;
+    id.entries_y[i] = y_unit * full_slots_num;
+    full_slots_num++;
+}
 </string>
           </argument>
         </arguments>
@@ -58,15 +90,12 @@ select = false;
             <kind>1</kind>
             <string>///Selector
 
-v_selector = 0;         // Controls the vertical position of the selector.
-h_selector = 0;         // Controls the horizontal position of the selector.
-selector_x = view_xview;
-selector_y = view_yview;
-selector_speed = 30 / room_speed;
-resize_speed = 6 / room_speed;
-selector_size = 1;
-shrink = false;
-enlarge = false;
+id.v_selector = 0;         // Controls the vertical position of the selector.
+id.h_selector = 0;         // Controls the horizontal position of the selector.
+id.selector_x = view_xview;
+id.selector_y = view_yview;
+id.selector_move_speed = 30 / room_speed;
+id.selector_scale_speed = 30 / room_speed;
 </string>
           </argument>
         </arguments>
@@ -118,87 +147,25 @@ if (gamepad_is_connected(0)) {
             <kind>1</kind>
             <string>///Selector Positions
 
-if (down) {
-    if (v_selector == 7 &amp;&amp; h_selector = 0) {
-        shrink = true;
-        enlarge = false;
+if (id.down) {
+    id.v_selector++;
+    id.v_selector %= array_length_1d(id.entries_y);
+}
+
+if (id.up) {
+    id.v_selector--;
+    if (id.v_selector &lt; 0) {
+        id.v_selector = array_length_1d(id.entries_y) - 1;
     }
-    if (v_selector == 8 &amp;&amp; h_selector == 0) {
-        enlarge = true;
-        shrink = false;
-        v_selector = 0;
-    } else if (v_selector == 8 &amp;&amp; h_selector &gt; 2 &amp;&amp; h_selector &lt; 7) {
-        h_selector -= 2;
-        v_selector--;
-    } else if (v_selector == 8 &amp;&amp; h_selector &lt;= 2) {
-        h_selector = 0;
-        v_selector = 0;
-    } else if (v_selector == 8 &amp;&amp; h_selector &gt;= 7) {
-        h_selector = 4;
-        v_selector--;
-    } else if (v_selector == 7 &amp;&amp; h_selector &gt; 0) {
-        h_selector += 2;
-        v_selector++;
-    } else {
-        v_selector++;
-    }
-} else if (up) {
-    if (v_selector == 0) {
-        shrink = true;
-        enlarge = false;
-        h_selector = 0;
-        v_selector = 8;
-    } else if (v_selector == 7 &amp;&amp; h_selector &gt; 0) {
-        h_selector += 2;
-        v_selector = 8;
-    } else if (v_selector == 8 &amp;&amp; h_selector &gt; 2 &amp;&amp; h_selector &lt; 7) {
-        h_selector -= 2;
-        v_selector--;
-    } else if (v_selector == 8 &amp;&amp; h_selector &lt;= 2) {
-        enlarge = true;
-        shrink = false;
-        h_selector = 0;
-        v_selector--;
-    } else if (v_selector == 8 &amp;&amp; h_selector &gt;= 7) {
-        h_selector = 4;
-        v_selector--;
-    } else if (h_selector == 0) {
-        v_selector--;
-    }
-} else if (left) {
-    if (v_selector == 7 &amp;&amp; h_selector == 1) {
-        enlarge = true;
-        shrink = false;
-    }
-    if (v_selector &lt; 7) {
-        shrink = true;
-        enlarge = false;
-        v_selector = 7;
-        h_selector = 4;
-    } else if (v_selector != 8 &amp;&amp; h_selector == 0) {
-        shrink = true;
-        enlarge = false;
-        h_selector = 4;
-    } else if (v_selector == 8 &amp;&amp; h_selector == 0) {
-        h_selector = 9;
-    } else {
-        h_selector--;
-    }
-} else if (right) {
-    if (v_selector &lt;= 7 &amp;&amp; h_selector == 0) {
-        shrink = true;
-        enlarge = false;
-        v_selector = 7;
-        h_selector++;
-    } else if (v_selector == 7 &amp;&amp; h_selector == 4) {
-        enlarge = true;
-        shrink = false;
-        h_selector = 0;
-    } else if (v_selector == 8 &amp;&amp; h_selector == 9) {
-        h_selector = 0;
-    } else {
-        h_selector++;
-    }
+    //id.v_selector %= array_length_1d(id.entries_y);
+}
+
+if (id.left) {
+    id.h_selector--;
+}
+
+if (id.right) {
+    id.h_selector++;
 }
 </string>
           </argument>
@@ -222,611 +189,11 @@ if (down) {
             <kind>1</kind>
             <string>///Selector Movement
 
-// Move the selector.
-if (global.inventory_open) {
-    var dir = point_direction(selector_x, selector_y, global.current_slot.x_coord, global.current_slot.y_coord);
-    var len = point_distance(selector_x, selector_y, global.current_slot.x_coord, global.current_slot.y_coord) * selector_speed;
-    
-    selector_x += lengthdir_x(len, dir);
-    selector_y += lengthdir_y(len, dir);
-}
+var dir = point_direction(id.selector_x, id.selector_y, id.selector_x, id.entries_y[id.v_selector]);
+var len = point_distance(id.selector_x, id.selector_y, id.selector_x, id.entries_y[id.v_selector]) * id.selector_move_speed;
 
-// Control selector size.
-if (shrink) {
-    selector_size -= resize_speed;
-    if (selector_size &lt;= 0) {
-        selector_size = 0;
-        shrink = false;
-    }
-} else if (enlarge) {
-    selector_size += resize_speed;
-    if (selector_size &gt;= 1) {
-        selector_size = 1;
-        enlarge = false;
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Manage Items
-
-if (global.inventory_open) {
-    if (toss) {
-        if (h_selector == 0 &amp;&amp; v_selector &lt; 4) {                                // Rings.
-            if (global.active_character.rings[v_selector].item != noone) {
-                if (global.active_character.rings[v_selector].item.grabbed) {
-                    global.active_character.rings[v_selector].item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                global.active_character.rings[v_selector].item.x = global.active_character.x;
-                global.active_character.rings[v_selector].item.y = global.active_character.y;
-                global.active_character.rings[v_selector].item.visible = true;
-                global.active_character.rings[v_selector].item = noone;
-            }
-        } else if (h_selector == 0 &amp;&amp; v_selector &gt;= 4 &amp;&amp; v_selector &lt; 6) {      // Accessories.
-           if (global.active_character.accessories[v_selector - 4].item != noone) {
-                if (global.active_character.accessories[v_selector - 4].item.grabbed) {
-                    global.active_character.accessories[v_selector - 4].item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                global.active_character.accessories[v_selector - 4].item.x = global.active_character.x;
-                global.active_character.accessories[v_selector - 4].item.y = global.active_character.y;
-                global.active_character.accessories[v_selector - 4].item.visible = true;
-                global.active_character.accessories[v_selector - 4].item = noone;
-            } 
-        }  else if (h_selector == 0 &amp;&amp; v_selector == 6) {                       // Amulet.
-            if (global.active_character.amulet.item != noone) {
-                if (global.active_character.amulet.item.grabbed) {
-                    global.active_character.amulet.item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                global.active_character.amulet.item.x = global.active_character.x;
-                global.active_character.amulet.item.y = global.active_character.y;
-                global.active_character.amulet.item.visible = true;
-                global.active_character.amulet.item = noone;
-            }
-        } else if (h_selector == 0 &amp;&amp; v_selector == 7) {                        // Special.
-            if (global.active_character.special.item != noone) {
-                if (global.active_character.special.item.grabbed) {
-                    global.active_character.special.item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                global.active_character.special.item.x = global.active_character.x;
-                global.active_character.special.item.y = global.active_character.y;
-                global.active_character.special.item.visible = true;
-                global.active_character.special.item = noone;
-            }
-        } else if (v_selector == 7 &amp;&amp; h_selector &gt; 0) {                         // Usables.
-            if (global.active_character.usables[h_selector - 1].item != noone) {
-                if (global.active_character.usables[h_selector - 1].item.grabbed) {
-                    global.active_character.usables[h_selector - 1].item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                global.active_character.usables[h_selector - 1].item.x = global.active_character.x;
-                global.active_character.usables[h_selector - 1].item.y = global.active_character.y;
-                global.active_character.usables[h_selector - 1].item.visible = true;
-                global.active_character.usables[h_selector - 1].item = noone;
-            }
-        } else {                                                                // Bag.
-            if (bag[h_selector].item != noone) {
-                if (bag[h_selector].item.grabbed) {
-                    bag[h_selector].item.grabbed = false;
-                    global.item_grabbed = noone;
-                }
-                bag[h_selector].item.x = global.active_character.x;
-                bag[h_selector].item.y = global.active_character.y;
-                bag[h_selector].item.visible = true;
-                bag[h_selector].item = noone;
-            }
-        }
-    }
-    
-    
-    
-    else if (move) {
-        if (h_selector == 0 &amp;&amp; v_selector &lt; 4) {                                // Rings.
-            if (global.active_character.rings[v_selector].item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There's no grabbed item -&gt; grab the item.
-                    global.active_character.rings[v_selector].item.grabbed = true;
-                    global.item_grabbed = global.active_character.rings[v_selector].item;
-                    global.item_grabbed_owner = global.active_character.rings[v_selector].owner;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Check if the item can be released here.
-                    if (global.item_grabbed.type == RING) {
-                        // The grabbed item can be put here -&gt; put the grabbed item down.
-                        var instance = global.active_character.rings[v_selector].item;
-                        global.active_character.rings[v_selector].item = global.item_grabbed;
-                        global.active_character.rings[v_selector].item.in_bag = false;
-                        global.active_character.rings[v_selector].item.grabbed = false;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &lt; 4) {
-                            // The grabbed item comes from the rings' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.rings[global.item_grabbed_v].item = instance;
-                                global.active_character.rings[global.item_grabbed_v].item.grabbed = false;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.rings[global.item_grabbed_v].item = instance;
-                                global.active_character.mate.rings[global.item_grabbed_v].item.grabbed = false;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.in_bag = true;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        }
-                        global.item_grabbed = noone;
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound.
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    if (global.item_grabbed.type == RING) {
-                        // The grabbed item can be put here.
-                        global.active_character.rings[v_selector].item = global.item_grabbed;
-                        global.active_character.rings[v_selector].item.in_bag = false;
-                        global.active_character.rings[v_selector].item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &lt; 4) {
-                            // The grabbed item comes from the rings' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.rings[global.item_grabbed_v].item = noone;
-                            } else {
-                                global.active_character.mate.rings[global.item_grabbed_v].item = noone;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = noone;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound.
-                    }
-                } else {
-                    // There is no grabbed item.
-                    //TODO Produce sound.
-                }
-            }
-        }
-        
-        
-        
-        else if (h_selector == 0 &amp;&amp; v_selector &gt;= 4 &amp;&amp; v_selector &lt; 6) {      // Accessories.
-            if (global.active_character.accessories[v_selector - 4].item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There is no grabbed item.
-                    global.active_character.accessories[v_selector - 4].item.grabbed = true;
-                    global.item_grabbed = global.active_character.accessories[v_selector - 4].item;
-                    global.item_grabbed_owner = global.active_character;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Check if the item can be released here.
-                    if (global.item_grabbed.type == ACCESSORY) {
-                        // The grabbed item can be put here.
-                        var instance = global.active_character.accessories[v_selector - 4].item;
-                        global.active_character.accessories[v_selector - 4].item = global.item_grabbed;
-                        global.active_character.accessories[v_selector - 4].item.in_bag = false;
-                        global.active_character.accessories[v_selector - 4].item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &gt;= 4 &amp;&amp; global.item_grabbed_v &lt; 6) {
-                            // The grabbed item comes from the accessories' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.accessories[global.item_grabbed_v - 4].item = instance;
-                                global.active_character.accessories[global.item_grabbed_v - 4].item.grabbed = false;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.accessories[global.item_grabbed_v - 4].item = instance;
-                                global.active_character.mate.accessories[global.item_grabbed_v - 4].item.grabbed = false;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.in_bag = true;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound;
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    if (global.item_grabbed.type == ACCESSORY) {
-                        // The grabbed item can be put here.
-                        global.active_character.accessories[v_selector - 4].item = global.item_grabbed;
-                        global.active_character.accessories[v_selector - 4].item.in_bag = false;
-                        global.active_character.accessories[v_selector - 4].item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &gt;= 4 &amp;&amp; global.item_grabbed_v &lt; 6) {
-                            // The grabbed item comes from the accessories' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.accessories[global.item_grabbed_v - 4].item = noone;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.accessories[global.item_grabbed_v - 4].item = noone;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = noone;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound.
-                    }
-                } else {
-                    // There is no grabbed item.
-                    //TODO Produce sound.
-                }
-            }
-        }
-        
-        
-        
-        else if (h_selector == 0 &amp;&amp; v_selector == 6) {                       // Amulet.
-            if (global.active_character.amulet.item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There is no grabbed item.
-                    global.active_character.amulet.item.grabbed = true;
-                    global.item_grabbed = global.active_character.amulet.item;
-                    global.item_grabbed_owner = global.active_character;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Verify if the item can be released here.
-                    if (global.item_grabbed.type == AMULET) {
-                        // The grabbed item can be put here
-                        var instance = global.active_character.amulet.item;
-                        global.active_character.amulet.item = global.item_grabbed;
-                        global.active_character.amulet.item.in_bag = false;
-                        global.active_character.amulet.item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 6) {
-                            // The grabbed item comes from the amulet group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.amulet.item = instance;
-                                global.active_character.amulet.item.grabbed = false;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.amulet.item = instance;
-                                global.active_character.mate.amulet.item.grabbed = false;
-                            }
-                            global.active_character.amulet.item = instance;
-                            global.active_character.amulet.item.grabbed = false;
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.in_bag = true;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound;
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    if (global.item_grabbed.type == AMULET) {
-                        // The item can be put here.
-                        global.active_character.amulet.item = global.item_grabbed;
-                        global.active_character.amulet.item.in_bag = false;
-                        global.active_character.amulet.item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 6) {
-                            // The grabbed item comes from the amulet group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.amulet.item = noone;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.amulet.item = noone;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = noone;
-                        }
-                    } else {
-                        // The item can't be put here.
-                        //TODO Produce sound.
-                    }
-                } else {
-                    // There is no grabbed item.
-                    //TODO Produce sound.
-                }
-            }
-        }
-        
-        
-        
-        else if (h_selector == 0 &amp;&amp; v_selector == 7) {                       // Special.
-            if (global.active_character.special.item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There is no grabbed item.
-                    global.active_character.special.item.grabbed = true;
-                    global.item_grabbed = global.active_character.special.item;
-                    global.item_grabbed_owner = global.active_character;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Verify if the item can be released here.
-                    if (global.item_grabbed.type == SPECIAL) {
-                        // The item can be put here.
-                        var instance = global.active_character.special.item;
-                        global.active_character.special.item = global.item_grabbed;
-                        global.active_character.special.item.in_bag = false;
-                        global.active_character.special.item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 7) {
-                            // The grabbed item comes from the special group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.special.item = instance;
-                                global.active_character.special.item.grabbed = false;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.special.item = instance;
-                                global.active_character.mate.special.item.grabbed = false;
-                            }
-                        } else {
-                            // The item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.in_bag = true;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        }
-                    } else {
-                        // The item can't be put here.
-                        //TODO Produce sound;
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    if (global.item_grabbed.type == SPECIAL) {
-                        // The grabbed item can be put here.
-                        global.active_character.special.item = global.item_grabbed;
-                        global.active_character.special.item.in_bag = false;
-                        global.active_character.special.item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 7) {
-                            // The grabbed item comes from the special group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.special.item = noone;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.special.item = noone;
-                            }
-                        } else {
-                            // The item comes from the bag.
-                            bag[global.item_grabbed_h].item = noone;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound.
-                    }
-                } else {
-                    // There is no grabbed item.
-                    //TODO Produce sound.
-                }
-            }
-        }
-        
-        
-        
-        else if (v_selector == 7 &amp;&amp; h_selector &gt; 0) {                         // Usables.
-            if (global.active_character.usables[h_selector - 1].item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There is no grabbed item.
-                    global.active_character.usables[h_selector - 1].item.grabbed = true;
-                    global.item_grabbed = global.active_character.usables[h_selector - 1].item;
-                    global.item_grabbed_owner = global.active_character;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Verify if the item can be released here.
-                    if (global.item_grabbed.type == USABLE) {
-                        // The grabbed item can be put here.
-                        // Put the grabbed item down.
-                        var instance = global.active_character.usables[h_selector - 1].item;
-                        global.active_character.usables[h_selector - 1].item = global.item_grabbed;
-                        if (global.item_grabbed_v == 7 &amp;&amp; global.item_grabbed_h &gt; 0) {
-                            // The grabbed item comes from usables' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.usables[global.item_grabbed_h - 1].item = instance;
-                                global.active_character.usables[global.item_grabbed_h - 1].item.grabbed = false;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.usables[global.item_grabbed_h - 1].item = instance;
-                                global.active_character.mate.usables[global.item_grabbed_h - 1].item.grabbed = false;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.in_bag = true;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        }
-                    } else {
-                        // The grabbed item can't be put here.
-                        //TODO Produce sound;
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    if (global.item_grabbed.type == USABLE) {
-                        // The grabbed item can be put here.
-                        global.active_character.usables[h_selector - 1].item = global.item_grabbed;
-                        global.active_character.usables[h_selector - 1].item.in_bag = false;
-                        global.active_character.usables[h_selector - 1].item.grabbed = false;
-                        global.item_grabbed = noone;
-                        if (global.item_grabbed_v == 7 &amp;&amp; global.item_grabbed_h &gt; 0) {
-                            // The grabbed item comes from the usables' group.
-                            if (global.item_grabbed_owner == global.active_character) {
-                                // The grabbed item comes from the active character.
-                                global.active_character.usables[global.item_grabbed_h - 1].item = noone;
-                            } else {
-                                // The grabbed item comes from the active character's mate.
-                                global.active_character.mate.usables[global.item_grabbed_h - 1].item = noone;
-                            }
-                        } else {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = noone;
-                        }
-                    }
-                } else {
-                    // The grabbed item can't be put here.
-                    //TODO Produce sound.
-                }
-            }
-        }
-        
-        
-        
-        else {                                                                // Bag.
-            if (bag[h_selector].item != noone) {
-                // The item slot is occupied.
-                if (global.item_grabbed == noone) {
-                    // There is no grabbed item.
-                    bag[h_selector].item.grabbed = true;
-                    global.item_grabbed = bag[h_selector].item;
-                    global.item_grabbed_h = h_selector;
-                    global.item_grabbed_v = v_selector;
-                } else {
-                    // There is a grabbed item.
-                    // Verify if the item can be released here.
-                    if (bag[h_selector].item.type == global.item_grabbed.type || global.item_grabbed.in_bag) {
-                        // The grabbed item can be put here.
-                        var instance = bag[h_selector].item;
-                        bag[h_selector].item = global.item_grabbed;
-                        bag[h_selector].item.in_bag = true;
-                        if (global.item_grabbed.in_bag) {
-                            // The grabbed item comes from the bag.
-                            bag[global.item_grabbed_h].item = instance;
-                            bag[global.item_grabbed_h].item.grabbed = false;
-                        } else {
-                            // The grabbed doesn't come from the bag.
-                            switch (global.item_grabbed.type) {
-                                case RING:
-                                    // The grabbed item comes from the rings' group.
-                                    global.active_character.rings[global.item_grabbed_v].item = instance;
-                                    global.active_character.rings[global.item_grabbed_v].item.in_bag = false;
-                                    global.active_character.rings[global.item_grabbed_v].item.grabbed = false;
-                                    break;
-                                case ACCESSORY:
-                                    // The grabbed item comes from the accessories' group.
-                                    global.active_character.accessories[global.item_grabbed_v - 4].item = instance;
-                                    global.active_character.accessories[global.item_grabbed_v - 4].item.in_bag = false;
-                                    global.active_character.accessories[global.item_grabbed_v - 4].item.grabbed = false;
-                                    break;
-                                case AMULET:
-                                    // The grabbed item comes from the amulet group.
-                                    global.active_character.amulet.item = instance;
-                                    global.active_character.amulet.item.in_bag = false;
-                                    global.active_character.amulet.item.grabbed = false;
-                                    break;
-                                case SPECIAL:
-                                    // The grabbed item comes from the special group.
-                                    global.active_character.special.item = instance;
-                                    global.active_character.apecial.item.in_bag = false;
-                                    global.active_character.apecial.item.grabbed = false;
-                                    break;
-                                case USABLE:
-                                    // The grabbed item comes from the usables' group.
-                                    global.active_character.usables[global.item_grabbed_h - 1].item = instance;
-                                    global.active_character.usables[global.item_grabbed_h - 1].item.in_bag = false;
-                                    global.active_character.usables[global.item_grabbed_h - 1].item.grabbed = false;
-                                    break;
-                            }
-                        }
-                        global.item_grabbed = noone;
-                    } else {
-                        // The item can't be put here.
-                        //TODO Produce sound;
-                    }
-                }
-            } else {
-                // The item slot is free.
-                if (global.item_grabbed != noone) {
-                    // There is a grabbed item.
-                    // Put the grabbed item down.
-                    bag[h_selector].item = global.item_grabbed;
-                    bag[h_selector].item.in_bag = true;
-                    bag[h_selector].item.grabbed = false;
-                    global.item_grabbed = noone;
-                    
-                    // Trial.
-                    if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &lt; 4) {
-                        // The grabbed item comes from the rings' group.
-                        global.active_character.rings[global.item_grabbed_v].item = noone;
-                    } else if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v &gt;= 4 &amp;&amp; global.item_grabbed_v &lt; 6) {
-                        // The grabbed item comes from the accessories' group.
-                        global.active_character.accessories[global.item_grabbed_v - 4].item = noone;
-                    } else if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 6) {
-                        // The grabbed item comes from the amulet group.
-                        global.active_character.amulet.item = noone;
-                    } else if (global.item_grabbed_h == 0 &amp;&amp; global.item_grabbed_v == 7) {
-                        // The grabbed item comes from the special group.
-                        global.active_character.special.item = noone;
-                    } else if (global.item_grabbed_v == 7 &amp;&amp; global.item_grabbed_h &gt; 0) {
-                        // The grabbed item comes from the usables' group.
-                        global.active_character.usables[global.item_grabbed_h - 1].item = noone;
-                    } else {
-                        // The grabbed item comes from the bag.
-                        bag[global.item_grabbed_h].item = noone;
-                    }
-                } else {
-                    // There is no grabbed item.
-                    //TODO Produce sound.
-                }
-            }
-        }
-    }
-}
+id.selector_x += lengthdir_x(len, dir);
+id.selector_y += lengthdir_y(len, dir);
 </string>
           </argument>
         </arguments>
@@ -851,36 +218,37 @@ if (global.inventory_open) {
             <kind>1</kind>
             <string>/// Draw Menu
 
-var slots_num = 4;
-
-var x_unit = room_width / 8;
-var y_unit = room_height / slots_num;
-var x_center = room_width / 2;
-var y_center = room_height / 2;
-
-var entries_num = 2;
-
-var entries_text;
-
-entries_text[0] = "Continue";
-entries_text[1] = "New Game";
-
-var full_slots_num = 0;
-
 // Set alignment.
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
 // Draw title.
-draw_set_font(fnt_title);
-draw_text(x_center, y_unit, "RUGHAI");
-full_slots_num += 2;
+draw_set_font(fnt_menu_title);
+draw_text(id.x_center, id.y_unit, "RUGHAI");
 
 // Draw entries.
-draw_set_font(fnt_hud);
-for (i = 0; i &lt; entries_num; i++) {
-    draw_text(x_center, y_unit * full_slots_num, entries_text[i]);
-    full_slots_num++;
+draw_set_font(fnt_test);
+for (i = 0; i &lt; id.entries_num; i++) {
+    if (i == id.v_selector) {
+        if (id.entries_scale[i] &lt; id.max_text_scale) {
+            id.entries_scale[i] += id.entries_scale_speed[i];
+            if (id.entries_scale_speed[i] &gt; id.min_text_scale_speed) {
+                id.entries_scale_speed[i] -= id.text_scale_accel;
+            } else {
+                id.entries_scale_speed[i] = id.min_text_scale_speed;
+            }
+        }
+    } else {
+        if (id.entries_scale[i] &gt; id.min_text_scale) {
+            id.entries_scale[i] -= id.entries_scale_speed[i];
+            if (id.entries_scale_speed[i] &lt; id.max_text_scale_speed) {
+                id.entries_scale_speed[i] += id.text_scale_accel;
+            } else {
+                id.entries_scale_speed[i] = id.max_text_scale_speed;
+            }
+        }
+    }
+    draw_text_transformed(id.x_center, id.entries_y[i], id.entries_text[i], id.entries_scale[i], id.entries_scale[i], 0);
 }
 
 // Reset alignment.
@@ -888,9 +256,9 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 
 // Draw selector.
-//draw_set_alpha(0.2);
-//draw_roundrect_colour_ext(x_unit, y_unit * 4, x_unit * 7, y_unit * 7, 20, 20, c_white, c_white, false);
-//draw_set_alpha(1);
+draw_set_alpha(0.2);
+draw_roundrect_colour_ext(id.x_unit * 2, id.entries_y[id.v_selector] - 20, id.x_unit * 6, id.entries_y[id.v_selector] + 20, 20, 20, c_white, c_white, false);
+draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
