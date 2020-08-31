@@ -680,31 +680,29 @@
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <backgrounds name="S">
-      <backgrounds name="Rughai">
-        <backgrounds name="0">
-          <background>background\bg_rughai_0_0</background>
-          <background>background\bg_rughai_0_1</background>
-          <background>background\bg_rughai_0_2</background>
-          <background>background\bg_rughai_0_3</background>
-          <background>background\bg_rughai_0_4</background>
-          <background>background\bg_rughai_0_5</background>
-          <background>background\bg_rughai_0_6</background>
-          <background>background\bg_rughai_0_7</background>
-        </backgrounds>
-        <background>background\bg_rughai_out_tileset_s</background>
-        <background>background\bg_rughai_in_tileset_s</background>
+    <backgrounds name="Rughai">
+      <backgrounds name="0">
+        <background>background\bg_rughai_0_0</background>
+        <background>background\bg_rughai_0_1</background>
+        <background>background\bg_rughai_0_2</background>
+        <background>background\bg_rughai_0_3</background>
+        <background>background\bg_rughai_0_4</background>
+        <background>background\bg_rughai_0_5</background>
+        <background>background\bg_rughai_0_6</background>
+        <background>background\bg_rughai_0_7</background>
       </backgrounds>
-      <backgrounds name="Shieva">
-        <backgrounds name="0">
-          <background>background\bg_shieva_0_0</background>
-          <background>background\bg_shieva_0_1</background>
-          <background>background\bg_shieva_0_2</background>
-          <background>background\bg_shieva_0_3</background>
-          <background>background\bg_shieva_0_4</background>
-        </backgrounds>
-        <background>background\bg_shieva_out_tileset_s</background>
+      <background>background\bg_rughai_out_tileset_s</background>
+      <background>background\bg_rughai_in_tileset_s</background>
+    </backgrounds>
+    <backgrounds name="Shieva">
+      <backgrounds name="0">
+        <background>background\bg_shieva_0_0</background>
+        <background>background\bg_shieva_0_1</background>
+        <background>background\bg_shieva_0_2</background>
+        <background>background\bg_shieva_0_3</background>
+        <background>background\bg_shieva_0_4</background>
       </backgrounds>
+      <background>background\bg_shieva_out_tileset_s</background>
     </backgrounds>
   </backgrounds>
   <paths name="paths"/>
@@ -1350,6 +1348,7 @@
       <room>rooms\rm_rughai_r5_s</room>
       <room>rooms\rm_rughai_r6_s</room>
       <room>rooms\rm_rughai_r7_s</room>
+      <room>rooms\rm_rughai_r8_s</room>
     </rooms>
     <rooms name="Shieva">
       <room>rooms\rm_shieva_r0_s</room>
