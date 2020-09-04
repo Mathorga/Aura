@@ -59,7 +59,7 @@ id.entries_text[1] = "New Game";
 id.entries_text[2] = "Settings";
 id.entries_text[3] = "Quit";
 
-id.entries_action[0] = noone;
+id.entries_action[0] = scr_start_menu_new_game;
 id.entries_action[1] = scr_start_menu_new_game;
 id.entries_action[2] = noone;
 id.entries_action[3] = scr_start_menu_quit;
