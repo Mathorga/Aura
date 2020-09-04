@@ -27,8 +27,8 @@
             <kind>1</kind>
             <string>/// Themes
 
-self.main_theme = noone;
-self.battle_theme = noone;
+id.main_theme = noone;
+id.battle_theme = noone;
 </string>
           </argument>
         </arguments>
@@ -54,7 +54,7 @@ self.battle_theme = noone;
             <string>/// Set the Theme
 
 // Play the correct theme according to the current room.
-if (room == rm_rughai_r0) {
+if (room != rm_rughai_r0_iryo_s) {
     if (self.main_theme != noone) {
         audio_pause_sound(self.main_theme);
     }

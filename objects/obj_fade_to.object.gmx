@@ -81,9 +81,16 @@ if (id.fade == -1) {
 }
 
 if (instance_exists(id)) {
-    draw_set_colour(c_black);
     draw_set_alpha(id.alpha);
-    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], 0);
+    draw_rectangle_colour(view_xview[0],
+                          view_yview[0],
+                          view_xview[0] + view_wview[0],
+                          view_yview[0] + view_hview[0],
+                          c_black,
+                          c_black,
+                          c_black,
+                          c_black,
+                          0);
     draw_set_alpha(1);
 }
 </string>

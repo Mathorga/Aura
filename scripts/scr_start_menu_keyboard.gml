@@ -6,4 +6,4 @@ left = keyboard_check_pressed(vk_left);
 up = keyboard_check_pressed(vk_up);
 down = keyboard_check_pressed(vk_down);
 
-select = keyboard_check_pressed(ord("M"));
+select = keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space);

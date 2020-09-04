@@ -39,8 +39,8 @@ global.active_character = noone;//instance_find(obj_iryo, 0);
 global.camera = noone;
 
 // Room change variables.
-global.rm = rm_shieva_r1;
-global.rm_back = rm_luminata_r1;
+global.rm = rm_rughai_r0_iryo_s;
+global.rm_back = rm_start_menu;
 
 global.saving = ds_map_create();
 
@@ -169,10 +169,10 @@ if (global.parallax_controller == noone) {
     global.parallax_controller = instance_create(id.x, id.y, obj_parallax_controller);
 }
 if (global.particle_controller == noone) {
-    global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
+    //global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
 }
 if (global.score_controller == noone) {
-    global.score_controller = instance_create(id.x, id.y, obj_score_controller);
+    //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
 }
 </string>
           </argument>
@@ -463,7 +463,7 @@ if (global.particle_controller == noone) {
     global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
 }
 if (global.score_controller == noone) {
-    global.score_controller = instance_create(id.x, id.y, obj_score_controller);
+    //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
 }
 </string>
           </argument>

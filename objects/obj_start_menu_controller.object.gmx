@@ -45,7 +45,7 @@ id.up = false;
 id.down = false;
 id.select = false;
 
-id.entries_num = 3;
+id.entries_num = 4;
 
 id.slots_num = id.entries_num + 3;
 
@@ -57,6 +57,12 @@ id.y_center = room_height / 2;
 id.entries_text[0] = "Continue";
 id.entries_text[1] = "New Game";
 id.entries_text[2] = "Settings";
+id.entries_text[3] = "Quit";
+
+id.entries_action[0] = noone;
+id.entries_action[1] = scr_start_menu_new_game;
+id.entries_action[2] = noone;
+id.entries_action[3] = scr_start_menu_quit;
 
 // 2 slots are taken by the title.
 var full_slots_num = 3;
@@ -94,6 +100,8 @@ id.v_selector = 0;         // Controls the vertical position of the selector.
 id.h_selector = 0;         // Controls the horizontal position of the selector.
 id.selector_x = view_xview;
 id.selector_y = view_yview;
+id.selector_width = 200;
+id.selector_height = 30;
 id.selector_move_speed = 30 / room_speed;
 id.selector_scale_speed = 30 / room_speed;
 </string>
@@ -198,6 +206,33 @@ id.selector_y += lengthdir_y(len, dir);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Select Entry
+
+if (id.select) {
+    if (id.entries_action[id.v_selector] != noone) {
+        script_execute(id.entries_action[id.v_selector]);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -257,7 +292,20 @@ draw_set_valign(fa_top);
 
 // Draw selector.
 draw_set_alpha(0.2);
-draw_roundrect_colour_ext(id.x_unit * 2, id.entries_y[id.v_selector] - 20, id.x_unit * 6, id.entries_y[id.v_selector] + 20, 20, 20, c_white, c_white, false);
+draw_roundrect_colour_ext(id.x_center - id.selector_width / 2,
+                          id.entries_y[id.v_selector] - id.selector_height / 2,
+                          id.x_center + id.selector_width / 2,
+                          id.entries_y[id.v_selector] + id.selector_height / 2,
+                          20,
+                          20,
+                          c_white,
+                          c_white,
+                          false);
+draw_rectangle(id.x_center - id.selector_width / 2 - 20,
+               id.entries_y[id.v_selector] - 1,
+               id.x_center + id.selector_width / 2 + 20,
+               id.entries_y[id.v_selector] + 1,
+               false);
 draw_set_alpha(1);
 </string>
           </argument>
