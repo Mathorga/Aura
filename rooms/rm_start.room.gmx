@@ -52,7 +52,6 @@
   </views>
   <instances>
     <instance objName="obj_debug" x="240" y="180" name="inst_F423AD82" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="180" y="140" name="inst_D5724C2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>-1</PhysicsWorld>

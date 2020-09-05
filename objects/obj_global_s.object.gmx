@@ -76,8 +76,8 @@ global.buffer = surface_create(display_get_width(), display_get_height());
 global.shaders_enabled = true;
 
 // Default shaders.
-global.shader_a = shd_chromatic_aberration;
-global.shader_b = shd_ambient_rughai;
+global.shader_a = noone;//shd_gaussian_blur;
+global.shader_b = noone;//shd_ambient_rughai;
 global.shader_c = noone;
 </string>
           </argument>
@@ -156,22 +156,30 @@ global.parallax_controller = noone;
 global.particle_controller = noone;
 global.score_controller = noone;
 
-if (global.inventory_controller == noone) {
+if (global.inventory_controller == noone ||
+    !instance_exists(global.inventory_controller)) {
     //global.inventory_controller = instance_create(x, y, obj_inventory_controller);
 }
-if (global.theme_controller == noone) {
+if (global.theme_controller == noone ||
+    !instance_exists(global.theme_controller)) {
     global.theme_controller = instance_create(id.x, id.y, obj_theme_controller);
 }
-if (global.shaders_enabled &amp;&amp; global.shader_controller == noone) {
-    global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
+if (global.shader_controller == noone ||
+    !instance_exists(global.shader_controller)) {
+    if (global.shaders_enabled) {
+        global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
+    }
 }
-if (global.parallax_controller == noone) {
+if (global.parallax_controller == noone ||
+    !instance_exists(global.parallax_controller)) {
     global.parallax_controller = instance_create(id.x, id.y, obj_parallax_controller);
 }
-if (global.particle_controller == noone) {
+if (global.particle_controller == noone ||
+    !instance_exists(global.parallax_controller)) {
     //global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
 }
-if (global.score_controller == noone) {
+if (global.score_controller == noone ||
+    !instance_exists(global.score_controller)) {
     //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
 }
 </string>
@@ -288,7 +296,7 @@ self.alarm[0] = 10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Regenerate Buffer Surface
+            <string>/// Regenerate Buffer Surface
 
 if (!surface_exists(global.buffer)) {
     global.buffer = surface_create(display_get_width(), display_get_height());
@@ -315,7 +323,7 @@ if (!surface_exists(global.buffer)) {
             <kind>1</kind>
             <string>/// Reset Alpha
 
-draw_set_alpha(1);
+//draw_set_alpha(1);
 </string>
           </argument>
         </arguments>
@@ -336,13 +344,31 @@ draw_set_alpha(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Activate Shaders
+            <string>/// Keep Controllers Close
 
-/*if (global.shaders_enabled &amp;&amp; global.shader_controller == noone) {
-    global.shader_controller = instance_create(x, y, obj_shader_controller);
-} else if (!global.shaders_enabled &amp;&amp; global.shader_controller != noone) {
-    instance_destroy(global.shader_controller);
-    global.shader_controller = noone;
+/*if (global.inventory_controller != noone) {
+    global.inventory_controller.x = id.x;
+    global.inventory_controller.y = id.y;
+}
+if (global.theme_controller != noone) {
+    global.theme_controller.x = id.x;
+    global.theme_controller.y = id.y;
+}
+if (global.shaders_enabled &amp;&amp; global.shader_controller != noone) {
+    global.shader_controller.x = id.x;
+    global.shader_controller.y = id.y;
+}
+if (global.parallax_controller != noone) {
+    global.parallax_controller.x = id.x;
+    global.parallax_controller.y = id.y;
+}
+if (global.particle_controller != noone) {
+    global.particle_controller.x = id.x;
+    global.particle_controller.y = id.y;
+}
+if (global.score_controller != noone) {
+    global.score_controller.x = id.x;
+    global.score_controller.y = id.y;
 }*/
 </string>
           </argument>
@@ -440,29 +466,30 @@ mp_grid_destroy(global.ai_grid);
             <kind>1</kind>
             <string>/// Create Controllers
 
-//global.inventory_controller = noone;
-//global.theme_controller = noone;
-global.shader_controller = noone;
-global.parallax_controller = noone;
-//global.particle_controller = noone;
-//global.score_controller = noone;
-
-if (global.inventory_controller == noone) {
+if (global.inventory_controller == noone ||
+    !instance_exists(global.inventory_controller)) {
     //global.inventory_controller = instance_create(x, y, obj_inventory_controller);
 }
-if (global.theme_controller == noone) {
+if (global.theme_controller == noone ||
+    !instance_exists(global.theme_controller)) {
     global.theme_controller = instance_create(id.x, id.y, obj_theme_controller);
 }
-if (global.shaders_enabled &amp;&amp; global.shader_controller == noone) {
-    global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
+if (global.shader_controller == noone ||
+    !instance_exists(global.shader_controller)) {
+    if (global.shaders_enabled) {
+        global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
+    }
 }
-if (global.parallax_controller == noone) {
+if (global.parallax_controller == noone ||
+    !instance_exists(global.parallax_controller)) {
     global.parallax_controller = instance_create(id.x, id.y, obj_parallax_controller);
 }
-if (global.particle_controller == noone) {
-    global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
+if (global.particle_controller == noone ||
+    !instance_exists(global.parallax_controller)) {
+    //global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
 }
-if (global.score_controller == noone) {
+if (global.score_controller == noone ||
+    !instance_exists(global.score_controller)) {
     //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
 }
 </string>
@@ -487,7 +514,7 @@ if (global.score_controller == noone) {
             <kind>1</kind>
             <string>///Enable the Draw of the Application Surface
 
-application_surface_draw_enable(true);
+//application_surface_draw_enable(true);
 </string>
           </argument>
         </arguments>

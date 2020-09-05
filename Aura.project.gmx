@@ -925,6 +925,8 @@
     <shader type="GLSLES">shaders\shd_motion_blur.shader</shader>
     <shader type="GLSLES">shaders\shd_darkness.shader</shader>
     <shader type="GLSLES">shaders\shd_ambient_rughai.shader</shader>
+    <shader type="GLSLES">shaders\shd_test.shader</shader>
+    <shader type="GLSLES">shaders\shd_gaussian_blur.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
@@ -1039,6 +1041,7 @@
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
       <object>objects\obj_start_menu_controller</object>
+      <object>objects\obj_shader_controller</object>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>
@@ -1310,7 +1313,6 @@
       <objects name="Controllers">
         <object>objects\obj_controller_parent</object>
         <object>objects\obj_inventory_controller</object>
-        <object>objects\obj_shader_controller</object>
         <object>objects\obj_parallax_controller</object>
         <object>objects\obj_score_controller</object>
         <object>objects\obj_spawn_controller</object>
@@ -1334,10 +1336,8 @@
     <object>objects\obj_life</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_rughai_r0_iryo_s</room>
     <room>rooms\rm_start_menu</room>
-    <rooms name="StartingRoom">
-      <room>rooms\rm_rughai_r0_iryo_s</room>
-    </rooms>
     <rooms name="Rughai">
       <room>rooms\rm_rughai_r0_s</room>
       <room>rooms\rm_rughai_r1_s</room>
