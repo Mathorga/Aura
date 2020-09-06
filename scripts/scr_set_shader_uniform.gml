@@ -10,9 +10,8 @@ if (shader == shd_chromatic_aberration) {
     shader_set_uniform_f(motion_blur_origin,
                          (obj_view.target.x - view_xview) / view_wview,
                          (obj_view.target.y - view_yview) / view_hview);
-} //else if (shader == shd_gaussian_blur) {
-    //shader_set_uniform_f(gaussian_blur_size,
-    //                     view_wview[0],
-    //                     view_hview[0],
-    //                     2);
-//}
+} else if (shader == shd_gaussian_blur) {
+    shader_set_uniform_f(gaussian_blur_screen_size,
+                         display_get_width(),
+                         display_get_height());
+}

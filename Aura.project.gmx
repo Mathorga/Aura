@@ -164,6 +164,9 @@
       <sprite>sprites\spr_camera_s</sprite>
       <sprite>sprites\spr_parent_s</sprite>
       <sprite>sprites\spr_controller_s</sprite>
+      <sprites name="Masks">
+        <sprite>sprites\spr_mask_blur_circle</sprite>
+      </sprites>
     </sprites>
     <sprites name="Lifeforms">
       <sprites name="Player">
@@ -927,6 +930,7 @@
     <shader type="GLSLES">shaders\shd_ambient_rughai.shader</shader>
     <shader type="GLSLES">shaders\shd_test.shader</shader>
     <shader type="GLSLES">shaders\shd_gaussian_blur.shader</shader>
+    <shader type="GLSLES">shaders\shader10.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>
@@ -1336,8 +1340,8 @@
     <object>objects\obj_life</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_rughai_r0_iryo_s</room>
     <room>rooms\rm_start_menu</room>
+    <room>rooms\rm_rughai_r0_iryo_s</room>
     <rooms name="Rughai">
       <room>rooms\rm_rughai_r0_s</room>
       <room>rooms\rm_rughai_r1_s</room>

@@ -4,7 +4,7 @@
   <solid>-1</solid>
   <visible>-1</visible>
   <depth>10000</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -79,7 +79,7 @@ aberration_intensity = shader_get_uniform(shd_chromatic_aberration, "intensity")
 // Motion blur.
 motion_blur_origin = shader_get_uniform(shd_motion_blur, "origin");
 // Gaussian blur.
-//gaussian_blur_size = shader_get_uniform(shd_gaussian_blur, "size");
+gaussian_blur_screen_size = shader_get_uniform(shd_gaussian_blur, "screenSize");
 </string>
           </argument>
         </arguments>
@@ -104,7 +104,7 @@ motion_blur_origin = shader_get_uniform(shd_motion_blur, "origin");
             <kind>1</kind>
             <string>///Enable the Draw of the Application Surface
 
-application_surface_draw_enable(true);
+//application_surface_draw_enable(true);
 </string>
           </argument>
         </arguments>

@@ -76,9 +76,9 @@ global.buffer = surface_create(display_get_width(), display_get_height());
 global.shaders_enabled = true;
 
 // Default shaders.
-global.shader_a = noone;//shd_gaussian_blur;
-global.shader_b = noone;//shd_ambient_rughai;
-global.shader_c = noone;
+global.shader_a = shd_chromatic_aberration;
+global.shader_b = shd_ambient_rughai;
+global.shader_c = shd_gaussian_blur;
 </string>
           </argument>
         </arguments>

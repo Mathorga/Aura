@@ -293,19 +293,19 @@ draw_set_valign(fa_top);
 // Draw selector.
 draw_set_alpha(0.2);
 draw_roundrect_colour_ext(id.x_center - id.selector_width / 2,
-                          id.entries_y[id.v_selector] - id.selector_height / 2,
+                          id.entries_y[id.v_selector] - 1,//id.selector_height / 2,
                           id.x_center + id.selector_width / 2,
-                          id.entries_y[id.v_selector] + id.selector_height / 2,
+                          id.entries_y[id.v_selector] + 1,//id.selector_height / 2,
                           20,
                           20,
                           c_white,
                           c_white,
                           false);
-draw_rectangle(id.x_center - id.selector_width / 2 - 20,
-               id.entries_y[id.v_selector] - 1,
-               id.x_center + id.selector_width / 2 + 20,
-               id.entries_y[id.v_selector] + 1,
-               false);
+//draw_rectangle(id.x_center - id.selector_width / 2 - 20,
+//               id.entries_y[id.v_selector] - 1,
+//               id.x_center + id.selector_width / 2 + 20,
+//               id.entries_y[id.v_selector] + 1,
+//               false);
 draw_set_alpha(1);
 </string>
           </argument>
