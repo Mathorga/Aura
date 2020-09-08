@@ -80,6 +80,7 @@ aberration_intensity = shader_get_uniform(shd_chromatic_aberration, "intensity")
 motion_blur_origin = shader_get_uniform(shd_motion_blur, "origin");
 // Gaussian blur.
 gaussian_blur_screen_size = shader_get_uniform(shd_gaussian_blur, "screenSize");
+gaussian_blur_center = shader_get_uniform(shd_gaussian_blur, "center");
 </string>
           </argument>
         </arguments>

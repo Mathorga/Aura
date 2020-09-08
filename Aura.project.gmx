@@ -928,9 +928,7 @@
     <shader type="GLSLES">shaders\shd_motion_blur.shader</shader>
     <shader type="GLSLES">shaders\shd_darkness.shader</shader>
     <shader type="GLSLES">shaders\shd_ambient_rughai.shader</shader>
-    <shader type="GLSLES">shaders\shd_test.shader</shader>
     <shader type="GLSLES">shaders\shd_gaussian_blur.shader</shader>
-    <shader type="GLSLES">shaders\shader10.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_hud</font>

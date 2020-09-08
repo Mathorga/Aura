@@ -14,4 +14,18 @@ if (shader == shd_chromatic_aberration) {
     shader_set_uniform_f(gaussian_blur_screen_size,
                          display_get_width(),
                          display_get_height());
+
+    // Set default center to screen center.
+    var center_x = display_get_width() / 2;
+    var center_y = display_get_height() / 2;
+    
+    // If camera exists, set center to camera position.
+    if (instance_exists(global.camera)) {
+        // Camera position needs to be mapped to screen coordinates as follows.
+        center_x = ((global.camera.x - view_xview[0]) * display_get_width()) / view_wview[0];
+        center_y = ((global.camera.y - view_yview[0]) * display_get_height()) / view_hview[0];
+    }
+    shader_set_uniform_f(gaussian_blur_center,
+                         center_x,
+                         center_y);
 }
