@@ -147,7 +147,7 @@ if (!instance_exists(obj_debug) &amp;&amp; global.debug) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Create Controllers
+            <string>/// Define Controllers
 
 global.inventory_controller = noone;
 global.theme_controller = noone;
@@ -156,32 +156,13 @@ global.parallax_controller = noone;
 global.particle_controller = noone;
 global.score_controller = noone;
 
-if (global.inventory_controller == noone ||
-    !instance_exists(global.inventory_controller)) {
-    //global.inventory_controller = instance_create(x, y, obj_inventory_controller);
-}
-if (global.theme_controller == noone ||
-    !instance_exists(global.theme_controller)) {
-    global.theme_controller = instance_create(id.x, id.y, obj_theme_controller);
-}
-if (global.shader_controller == noone ||
-    !instance_exists(global.shader_controller)) {
-    if (global.shaders_enabled) {
-        global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
-    }
-}
-if (global.parallax_controller == noone ||
-    !instance_exists(global.parallax_controller)) {
-    global.parallax_controller = instance_create(id.x, id.y, obj_parallax_controller);
-}
-if (global.particle_controller == noone ||
-    !instance_exists(global.parallax_controller)) {
-    //global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
-}
-if (global.score_controller == noone ||
-    !instance_exists(global.score_controller)) {
-    //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
-}
+
+//scr_create_inventory_controller();
+//scr_create_theme_controller();
+//scr_create_shader_controller();
+//scr_create_parallax_controller();
+//scr_create_particle_controller();
+//scr_create_score_controller();
 </string>
           </argument>
         </arguments>
@@ -466,32 +447,12 @@ mp_grid_destroy(global.ai_grid);
             <kind>1</kind>
             <string>/// Create Controllers
 
-if (global.inventory_controller == noone ||
-    !instance_exists(global.inventory_controller)) {
-    //global.inventory_controller = instance_create(x, y, obj_inventory_controller);
-}
-if (global.theme_controller == noone ||
-    !instance_exists(global.theme_controller)) {
-    global.theme_controller = instance_create(id.x, id.y, obj_theme_controller);
-}
-if (global.shader_controller == noone ||
-    !instance_exists(global.shader_controller)) {
-    if (global.shaders_enabled) {
-        global.shader_controller = instance_create(id.x, id.y, obj_shader_controller);
-    }
-}
-if (global.parallax_controller == noone ||
-    !instance_exists(global.parallax_controller)) {
-    global.parallax_controller = instance_create(id.x, id.y, obj_parallax_controller);
-}
-if (global.particle_controller == noone ||
-    !instance_exists(global.parallax_controller)) {
-    //global.particle_controller = instance_create(id.x, id.y, obj_particle_controller);
-}
-if (global.score_controller == noone ||
-    !instance_exists(global.score_controller)) {
-    //global.score_controller = instance_create(id.x, id.y, obj_score_controller);
-}
+scr_create_inventory_controller();
+scr_create_theme_controller();
+scr_create_shader_controller();
+scr_create_parallax_controller();
+scr_create_particle_controller();
+scr_create_score_controller();
 </string>
           </argument>
         </arguments>

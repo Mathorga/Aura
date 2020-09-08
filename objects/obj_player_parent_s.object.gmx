@@ -543,7 +543,7 @@ if (door != noone) {
             id.move_spd = id.walk_spd;
             id.in_door = true;
             
-            scr_fade_to_room(door.new_room, true);
+            scr_fade_to_room(door.new_room, true, false);
         }
     }
 }
@@ -661,7 +661,7 @@ if (room_exists(other.new_room) &amp;&amp; control == HUMAN) {
     self.dir = scr_face_to_dir(self.face);
     self.move_spd = self.walk_spd;
     
-    scr_fade_to_room(other.new_room, true);
+    scr_fade_to_room(other.new_room, true, false);
 }
 </string>
           </argument>

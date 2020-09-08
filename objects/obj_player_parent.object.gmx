@@ -328,7 +328,7 @@ special.v_pos = 7;
 }*/
 //****
 
-scr_fade_to_room(rm_rughai_r2_iryo, false);
+scr_fade_to_room(rm_rughai_r2_iryo, false, false);
 
 //scr_load_game();
 //scr_load_room();
@@ -795,7 +795,7 @@ if (room_exists(other.new_room) &amp;&amp; control == HUMAN) {
     self.dir = scr_face_to_dir(self.face);
     self.move_spd = self.walk_spd;
     
-    scr_fade_to_room(other.new_room, true);
+    scr_fade_to_room(other.new_room, true, false);
 }
 </string>
           </argument>

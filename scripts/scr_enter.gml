@@ -4,5 +4,5 @@
 //show_debug_message("Entered door");
 instance_destroy(signal);
 signal = noone;
-scr_fade_to_room(new_room, true);
+scr_fade_to_room(new_room, true, false);
 //instance_create(x, y + 50, obj_entering);

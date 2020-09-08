@@ -761,6 +761,17 @@
       <script>scripts\scr_get_stairs_dir.gml</script>
       <script>scripts\scr_fade_to_room.gml</script>
       <script>scripts\scr_open_chest.gml</script>
+      <scripts name="Controllers">
+        <script>scripts\scr_create_inventory_controller.gml</script>
+        <script>scripts\scr_create_theme_controller.gml</script>
+        <script>scripts\scr_create_shader_controller.gml</script>
+        <script>scripts\scr_create_parallax_controller.gml</script>
+        <script>scripts\scr_create_particle_controller.gml</script>
+        <script>scripts\scr_create_score_controller.gml</script>
+        <scripts name="Shader Controller">
+          <script>scripts\scr_draw_world.gml</script>
+        </scripts>
+      </scripts>
       <script>scripts\scr_enter.gml</script>
     </scripts>
     <scripts name="Lifeform">
@@ -908,6 +919,10 @@
         </scripts>
         <script>scripts\scr_start_menu_quit.gml</script>
         <script>scripts\scr_start_menu_new_game.gml</script>
+        <script>scripts\scr_start_menu_settings.gml</script>
+      </scripts>
+      <scripts name="Settings Menu">
+        <script>scripts\scr_settings_menu_back.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scr_draw_shadow_old.gml</script>
@@ -1042,8 +1057,12 @@
       </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
-      <object>objects\obj_start_menu_controller</object>
-      <object>objects\obj_shader_controller</object>
+      <objects name="Controllers">
+        <object>objects\obj_start_menu_controller</object>
+        <object>objects\obj_settings_menu_controller</object>
+        <object>objects\obj_shader_controller</object>
+        <object>objects\obj_parallax_controller</object>
+      </objects>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>
@@ -1315,13 +1334,11 @@
       <objects name="Controllers">
         <object>objects\obj_controller_parent</object>
         <object>objects\obj_inventory_controller</object>
-        <object>objects\obj_parallax_controller</object>
         <object>objects\obj_score_controller</object>
         <object>objects\obj_spawn_controller</object>
         <object>objects\obj_theme_controller</object>
         <object>objects\obj_particle_controller</object>
       </objects>
-      <object>objects\obj_global</object>
       <object>objects\obj_debug</object>
       <object>objects\obj_item_slot</object>
       <object>objects\obj_grid_position</object>
@@ -1339,8 +1356,9 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_start_menu</room>
-    <room>rooms\rm_rughai_r0_iryo_s</room>
+    <room>rooms\rm_settings_menu</room>
     <rooms name="Rughai">
+      <room>rooms\rm_rughai_r0_iryo_s</room>
       <room>rooms\rm_rughai_r0_s</room>
       <room>rooms\rm_rughai_r1_s</room>
       <room>rooms\rm_rughai_r2_s</room>

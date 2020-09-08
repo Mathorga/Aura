@@ -29,6 +29,7 @@
 
 id.alpha = 0;
 id.fade = 1;
+id.fade_speed = 0.02;
 id.set = false;
 id.door = false;
 </string>
@@ -55,7 +56,7 @@ id.door = false;
             <kind>1</kind>
             <string>///Fade
 
-id.alpha = clamp(id.alpha + (id.fade * 0.02), 0, 1);
+id.alpha = clamp(id.alpha + (id.fade * id.fade_speed), 0, 1);
 
 if (id.alpha == 1) {
     if (room == global.rm) {

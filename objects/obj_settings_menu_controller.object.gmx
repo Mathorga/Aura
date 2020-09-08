@@ -55,10 +55,10 @@ id.back = false;
             <kind>1</kind>
             <string>/// Entries Text
 
-id.entries_text[0] = "Continue";
-id.entries_text[1] = "New Game";
-id.entries_text[2] = "Settings";
-id.entries_text[3] = "Quit";
+id.entries_text[0] = "Music Volume";
+id.entries_text[1] = "Effects Volume";
+id.entries_text[2] = "Graphics";
+id.entries_text[3] = "Back";
 </string>
           </argument>
         </arguments>
@@ -81,10 +81,10 @@ id.entries_text[3] = "Quit";
             <kind>1</kind>
             <string>/// Entries Action
 
-id.entries_action[0] = scr_start_menu_new_game;
-id.entries_action[1] = scr_start_menu_new_game;
-id.entries_action[2] = scr_start_menu_settings;
-id.entries_action[3] = scr_start_menu_quit;
+id.entries_action[0] = noone;
+id.entries_action[1] = noone;
+id.entries_action[2] = noone;
+id.entries_action[3] = scr_settings_menu_back;
 </string>
           </argument>
         </arguments>
@@ -123,15 +123,14 @@ id.padding_bottom = padding_top;
 
 id.entries_num = 4;
 
-id.slots_num = id.entries_num + 2;
+id.slots_num = id.entries_num
 
 id.x_unit = room_width / 8;
 id.y_unit = (room_height - padding_top - padding_bottom) / slots_num;
 id.x_center = room_width / 2;
 id.y_center = room_height / 2;
 
-// 2 slots are taken by the title.
-var full_slots_num = 2;
+var full_slots_num = 0;
 
 // Coordinates of all menu entries.
 for (i = 0; i &lt; entries_num; i++) {
@@ -290,12 +289,14 @@ id.selector_y += lengthdir_y(len, dir);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Select Entry
+            <string>/// Select Entry
 
 if (id.select) {
     if (id.entries_action[id.v_selector] != noone) {
         script_execute(id.entries_action[id.v_selector]);
     }
+} else if (id.back) {
+    scr_settings_menu_back();
 }
 </string>
           </argument>
@@ -325,10 +326,6 @@ if (id.select) {
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
-// Draw title.
-draw_set_font(fnt_menu_title);
-draw_text(id.x_center, id.y_unit, "RUGHAI");
-
 // Draw selector.
 draw_set_alpha(0.2);
 draw_roundrect_colour_ext(id.x_center - id.selector_width / 2,
@@ -340,11 +337,6 @@ draw_roundrect_colour_ext(id.x_center - id.selector_width / 2,
                           c_white,
                           c_white,
                           false);
-//draw_rectangle(id.x_center - id.selector_width / 2 - 20,
-//               id.entries_y[id.v_selector] - 1,
-//               id.x_center + id.selector_width / 2 + 20,
-//               id.entries_y[id.v_selector] + 1,
-//               false);
 draw_set_alpha(1);
 
 // Draw entries.
