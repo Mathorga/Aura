@@ -56,7 +56,6 @@ background_xscale = display_get_width() / background_width;</code>
   <instances>
     <instance objName="obj_title" x="147" y="19" name="inst_569F6C38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_press_any_key" x="158" y="276" name="inst_892B55E7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="&lt;undefined&gt;" x="31" y="93" name="inst_52588DA1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

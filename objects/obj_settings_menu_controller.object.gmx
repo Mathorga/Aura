@@ -105,6 +105,35 @@ id.entries_action[3] = scr_settings_menu_back;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Entries Value
+
+id.max_entry_value = 10;
+id.default_entry_value = 5;
+
+id.entries_value[0] = id.default_entry_value;
+id.entries_value[1] = id.default_entry_value;
+id.entries_value[2] = id.default_entry_value;
+id.entries_value[3] = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Initialize
 
 // The increment in alpha when opening/closing the menu.
@@ -123,9 +152,9 @@ id.padding_bottom = padding_top;
 
 id.entries_num = 4;
 
-id.slots_num = id.entries_num
+id.slots_num = id.entries_num;
 
-id.x_unit = room_width / 8;
+id.x_unit = room_width / 20;
 id.y_unit = (room_height - padding_top - padding_bottom) / slots_num;
 id.x_center = room_width / 2;
 id.y_center = room_height / 2;
@@ -171,6 +200,30 @@ id.selector_width = 200;
 id.selector_height = 30;
 id.selector_move_speed = 30 / room_speed;
 id.selector_scale_speed = 30 / room_speed;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Slider
+
+id.slider_bg_height = 30;
+id.slider_padding = 5;
 </string>
           </argument>
         </arguments>
@@ -297,6 +350,16 @@ if (id.select) {
     }
 } else if (id.back) {
     scr_settings_menu_back();
+} else if (id.right) {
+    if (id.entries_value[id.v_selector] != -1 &amp;&amp;
+        id.entries_value[id.v_selector] &lt; id.max_entry_value) {
+        id.entries_value[id.v_selector]++;
+    }
+} else if (id.left) {
+    if (id.entries_value[id.v_selector] != -1 &amp;&amp;
+        id.entries_value[id.v_selector] &gt; 0) {
+        id.entries_value[id.v_selector]--;
+    }
 }
 </string>
           </argument>
@@ -343,6 +406,7 @@ draw_set_alpha(1);
 draw_set_font(fnt_test);
 for (i = 0; i &lt; id.entries_num; i++) {
     if (i == id.v_selector) {
+        // Draw selected entry.
         if (id.entries_scale[i] &lt; id.max_text_scale) {
             id.entries_scale[i] += id.entries_scale_speed[i];
             if (id.entries_scale_speed[i] &gt; id.min_text_scale_speed) {
@@ -352,6 +416,7 @@ for (i = 0; i &lt; id.entries_num; i++) {
             }
         }
     } else {
+        // Draw unselected entry.
         if (id.entries_scale[i] &gt; id.min_text_scale) {
             id.entries_scale[i] -= id.entries_scale_speed[i];
             if (id.entries_scale_speed[i] &lt; id.max_text_scale_speed) {
@@ -361,7 +426,61 @@ for (i = 0; i &lt; id.entries_num; i++) {
             }
         }
     }
-    draw_text_transformed(id.x_center, id.entries_y[i], id.entries_text[i], id.entries_scale[i], id.entries_scale[i], 0);
+    // Check if current entry has values. if so, draw it to the side, else draw it centered.
+    if (id.entries_value[i] == -1) {
+        draw_text_transformed(id.x_center, id.entries_y[i], id.entries_text[i], id.entries_scale[i], id.entries_scale[i], 0);
+    } else {
+        draw_set_halign(fa_right);
+        draw_text_transformed(id.x_center - id.x_unit, id.entries_y[i], id.entries_text[i], id.entries_scale[i], id.entries_scale[i], 0);
+        draw_set_halign(fa_left);
+        var slider_bg_x1 = id.x_center + id.x_unit;
+        var slider_bg_x2 = room_width - (id.x_unit * 2);
+        var slider_bg_width = slider_bg_x2 - slider_bg_x1;
+        var slider_bg_y1 = id.entries_y[i] - ((id.slider_bg_height / 2) * id.entries_scale[i]);
+        var slider_bg_y2 = id.entries_y[i] + ((id.slider_bg_height / 2) * id.entries_scale[i]);
+        /*draw_rectangle_colour(slider_bg_x1,
+                              slider_bg_y1,
+                              slider_bg_x1 + (slider_bg_width * id.entries_scale[i]),
+                              slider_bg_y2,
+                              c_dkgray,
+                              c_dkgray,
+                              c_dkgray,
+                              c_dkgray,
+                              false);*/
+        draw_roundrect_colour(slider_bg_x1,
+                              slider_bg_y1,
+                              slider_bg_x1 + (slider_bg_width * id.entries_scale[i]),
+                              slider_bg_y2,
+                              c_dkgray,
+                              c_dkgray,
+                              false);
+        if (id.entries_value[i] &gt; 0) {
+            var slider_x1 = slider_bg_x1 + id.slider_padding;
+            var slider_x2 = slider_bg_x2 - id.slider_padding;
+            var slider_max_width = slider_x2 - slider_x1;
+            var slider_unit_width = slider_max_width / id.max_entry_value;
+            var slider_width = slider_unit_width * id.entries_value[i];
+            var slider_y1 = id.entries_y[i] - (((id.slider_bg_height / 2) - id.slider_padding) * id.entries_scale[i]);
+            var slider_y2 = id.entries_y[i] + (((id.slider_bg_height / 2) - id.slider_padding) * id.entries_scale[i]);
+            /*draw_rectangle_colour(slider_x1,
+                                  slider_y1,
+                                  slider_x1 + (slider_width * id.entries_scale[i]),
+                                  slider_y2,
+                                  c_gray,
+                                  c_gray,
+                                  c_gray,
+                                  c_gray,
+                                  false);*/
+            draw_roundrect_colour(slider_x1,
+                                  slider_y1,
+                                  slider_x1 + (slider_width * id.entries_scale[i]),
+                                  slider_y2,
+                                  c_gray,
+                                  c_gray,
+                                  false);
+        }
+        draw_set_halign(fa_center);
+    }
 }
 
 // Reset alignment.
