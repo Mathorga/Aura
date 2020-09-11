@@ -1,9 +1,8 @@
 ///scr_player_gamepad(device, deadzone)
 
-var device = argument0;     //usando var lo scope si estende solo allo script
-var deadzone = argument1;
+var device = argument0;
 
-gamepad_set_axis_deadzone(device, deadzone);
+gamepad_set_axis_deadzone(device, ANALOG_DEADZONE);
 
 // Arrows.
 right = gamepad_button_check_pressed(device, gp_padr);

@@ -714,7 +714,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="47">
+    <constants number="48">
       <constant name="ATK_X_COST">2</constant>
       <constant name="ATK_Y_COST">3</constant>
       <constant name="ROLL_COST">5</constant>
@@ -762,6 +762,7 @@
       <constant name="TILE_WIDTH">32</constant>
       <constant name="TILE_HEIGHT">22</constant>
       <constant name="SNOW_FOOTSTEP">0</constant>
+      <constant name="ANALOG_DEADZONE">0.35</constant>
     </constants>
   </ConfigConstants>
 </Config>

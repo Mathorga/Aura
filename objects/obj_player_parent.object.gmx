@@ -481,7 +481,7 @@ event_inherited();
 
 if (self.control == HUMAN &amp;&amp; self.mobility) {
     if (gamepad_is_connected(0)) {
-        scr_player_gamepad(0, deadzone);
+        scr_player_gamepad(0);
     } else {
         scr_player_keyboard();
     }

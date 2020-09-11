@@ -164,6 +164,7 @@
       <sprite>sprites\spr_camera_s</sprite>
       <sprite>sprites\spr_parent_s</sprite>
       <sprite>sprites\spr_controller_s</sprite>
+      <sprite>sprites\spr_menu_entry</sprite>
       <sprites name="Masks">
         <sprite>sprites\spr_mask_blur_circle</sprite>
       </sprites>
@@ -1055,13 +1056,18 @@
         <object>objects\obj_drown_sensor_s</object>
         <object>objects\obj_puddle_sensor_s</object>
       </objects>
+      <objects name="Menu">
+        <object>objects\obj_menu_entry</object>
+      </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
       <objects name="Controllers">
         <object>objects\obj_start_menu_controller</object>
         <object>objects\obj_settings_menu_controller</object>
+        <object>objects\obj_settings_menu_controller_new</object>
         <object>objects\obj_shader_controller</object>
         <object>objects\obj_parallax_controller</object>
+        <object>objects\obj_menu_controller_parent</object>
       </objects>
     </objects>
     <objects name="Lifeforms">

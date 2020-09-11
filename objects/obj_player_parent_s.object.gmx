@@ -172,7 +172,6 @@ id.action = STAND;
 
 // Controller variables.
 id.device = 0;
-id.deadzone = 0.35;
 </string>
           </argument>
         </arguments>
@@ -397,7 +396,7 @@ event_inherited();
 
 if (id.mobility) {
     if (gamepad_is_connected(id.device)) {
-        scr_player_gamepad(id.device, id.deadzone);
+        scr_player_gamepad(id.device);
     } else {
         scr_player_keyboard();
     }
