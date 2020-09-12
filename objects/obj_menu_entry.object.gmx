@@ -114,8 +114,8 @@ if (id.value == -1) {
         var slider_fill_max_width = slider_fill_x2 - slider_fill_x1;
         var slider_fill_unit_width = slider_fill_max_width / id.max_value;
         var slider_fill_width = slider_fill_unit_width * id.value;
-        var slider_fill_y1 = id.y - (((id.slider_height / 2) - id.slider_padding) * id.value);
-        var slider_fill_y2 = id.y + (((id.slider_height / 2) - id.slider_padding) * id.value);
+        var slider_fill_y1 = id.y - (((id.slider_height / 2) - id.slider_padding) * id.scale);
+        var slider_fill_y2 = id.y + (((id.slider_height / 2) - id.slider_padding) * id.scale);
         draw_roundrect_colour(slider_fill_x1,
                               slider_fill_y1,
                               slider_fill_x1 + (slider_fill_width * id.scale),

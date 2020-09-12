@@ -225,6 +225,76 @@ if (id.select) {
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw Menu
+
+// Set alignment.
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+// Draw selector.
+draw_set_alpha(0.2);
+draw_roundrect_colour_ext(id.x_center - id.selector_width / 2,
+                          id.entries[id.v_selector].y - 1,//id.selector_height / 2,
+                          id.x_center + id.selector_width / 2,
+                          id.entries[id.v_selector].y + 1,//id.selector_height / 2,
+                          20,
+                          20,
+                          c_white,
+                          c_white,
+                          false);
+draw_set_alpha(1);
+
+// Draw entries.
+draw_set_font(fnt_test);
+for (i = 0; i &lt; id.entries_num; i++) {
+    if (i == id.v_selector) {
+        // Draw selected entry.
+        if (id.entries[i].scale &lt; id.entries[i].max_scale) {
+            id.entries[i].scale += id.entries[i].scale_speed;
+            if (id.entries[i].scale_speed &gt; id.entries[i].min_scale_speed) {
+                id.entries[i].scale_speed -= id.entries[i].scale_accel;
+            } else {
+                id.entries[i].scale_speed = id.entries[i].min_scale_speed;
+            }
+        }
+    } else {
+        // Draw unselected entry.
+        if (id.entries[i].scale &gt; id.entries[i].min_scale) {
+            id.entries[i].scale -= id.entries[i].scale_speed;
+            if (id.entries[i].scale_speed &lt; id.entries[i].max_scale_speed) {
+                id.entries[i].scale_speed += id.entries[i].scale_accel;
+            } else {
+                id.entries[i].scale_speed = id.entries[i].max_scale_speed;
+            }
+        }
+    }
+}
+
+// Reset alignment.
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
