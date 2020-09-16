@@ -40,6 +40,9 @@
           <sound>sound\snd_footstep_snow_20</sound>
         </sounds>
       </sounds>
+      <sounds name="Menu">
+        <sound>sound\snd_menu_tick</sound>
+      </sounds>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -1061,12 +1064,14 @@
         <object>objects\obj_menu_entry</object>
       </objects>
       <objects name="Controllers">
-        <object>objects\obj_start_menu_controller</object>
-        <object>objects\obj_start_menu_controller_new</object>
-        <object>objects\obj_settings_menu_controller</object>
+        <objects name="Menu">
+          <object>objects\obj_menu_controller_parent</object>
+          <object>objects\obj_start_menu_controller</object>
+          <object>objects\obj_settings_menu_controller</object>
+        </objects>
         <object>objects\obj_shader_controller</object>
         <object>objects\obj_parallax_controller</object>
-        <object>objects\obj_menu_controller_parent</object>
+        <object>objects\obj_theme_controller</object>
       </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
@@ -1343,7 +1348,6 @@
         <object>objects\obj_inventory_controller</object>
         <object>objects\obj_score_controller</object>
         <object>objects\obj_spawn_controller</object>
-        <object>objects\obj_theme_controller</object>
         <object>objects\obj_particle_controller</object>
       </objects>
       <object>objects\obj_debug</object>

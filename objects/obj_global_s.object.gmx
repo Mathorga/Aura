@@ -69,6 +69,32 @@ global.A_signal = noone;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Audio
+
+global.volume_fx = 0.5;
+global.volume_music = 0.5;
+
+global.theme_sound = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Graphics
 
 // Buffer surface to use multiple shaders.
@@ -330,11 +356,11 @@ if (!surface_exists(global.buffer)) {
 /*if (global.inventory_controller != noone) {
     global.inventory_controller.x = id.x;
     global.inventory_controller.y = id.y;
-}
+}*/
 if (global.theme_controller != noone) {
     global.theme_controller.x = id.x;
     global.theme_controller.y = id.y;
-}
+}/*
 if (global.shaders_enabled &amp;&amp; global.shader_controller != noone) {
     global.shader_controller.x = id.x;
     global.shader_controller.y = id.y;

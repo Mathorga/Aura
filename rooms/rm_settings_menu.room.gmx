@@ -10,7 +10,7 @@
   <persistent>0</persistent>
   <colour>2763306</colour>
   <showcolour>-1</showcolour>
-  <code></code>
+  <code>global.theme_sound = snd_rughai_main;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

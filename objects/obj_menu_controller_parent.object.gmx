@@ -163,6 +163,7 @@ if (gamepad_is_connected(0)) {
 if (id.down) {
     id.v_selector++;
     id.v_selector %= array_length_1d(id.entries);
+    audio_play_sound(snd_menu_tick, 0, false);
 }
 
 if (id.up) {
@@ -171,6 +172,7 @@ if (id.up) {
         id.v_selector = array_length_1d(id.entries) - 1;
     }
     //id.v_selector %= array_length_1d(id.entries_y);
+    audio_play_sound(snd_menu_tick, 0, false);
 }
 
 if (id.left) {
@@ -232,20 +234,24 @@ id.selector_y += lengthdir_y(len, dir);
 if (id.select) {
     if (id.entries[id.v_selector].action != noone) {
         script_execute(id.entries[id.v_selector].action);
+        audio_play_sound(snd_menu_tick, 0, false);
     }
 } else if (id.back) {
     if (id.back_action != noone) {
         script_execute(id.back_action);
+        audio_play_sound(snd_menu_tick, 0, false);
     }
 } else if (id.right) {
     if (id.entries[id.v_selector].value != -1 &amp;&amp;
         id.entries[id.v_selector].value &lt; id.entries[id.v_selector].max_value) {
         id.entries[id.v_selector].value++;
+        audio_play_sound(snd_menu_tick, 0, false);
     }
 } else if (id.left) {
     if (id.entries[id.v_selector].value != -1 &amp;&amp;
         id.entries[id.v_selector].value &gt; 0) {
         id.entries[id.v_selector].value--;
+        audio_play_sound(snd_menu_tick, 0, false);
     }
 }
 </string>

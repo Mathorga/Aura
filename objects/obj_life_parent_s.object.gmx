@@ -347,10 +347,10 @@ if (self.state == self.fall_state || self.state == self.drown_state) {
     //draw_set_alpha(1);
 } else {
     // Set shading.
-    shader_set(shd_flip_colors);
+    //shader_set(shd_flip_colors);
     draw_self();
     // Reset shading.
-    shader_reset();
+    //shader_reset();
 }
 </string>
           </argument>

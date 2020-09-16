@@ -162,6 +162,80 @@ id.selector_scale_speed = 30 / room_speed;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Inherit
+
+event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set FX Volume
+
+// Music sounds.
+audio_sound_gain(snd_rughai_main, id.entries[0].value / id.entries[0].max_value, 0);
+//TODO Others.
+
+// Effects sounds.
+audio_sound_gain(snd_menu_tick, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_1, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_2, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_3, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_4, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_5, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_6, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_7, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_8, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_9, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_10, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_11, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_12, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_13, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_14, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_15, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_16, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_17, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_18, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_19, id.entries[1].value / id.entries[1].max_value, 0);
+audio_sound_gain(snd_footstep_snow_20, id.entries[1].value / id.entries[1].max_value, 0);
+//TODO Others.
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
