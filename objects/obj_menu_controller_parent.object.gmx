@@ -76,6 +76,29 @@ id.back = false;
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Entri-free Actions
+
+id.back_action = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// Initialize
 
 id.x_center = room_width / 2;
@@ -83,6 +106,9 @@ id.y_center = room_height / 2;
 
 id.padding_top = room_height / 10;
 id.padding_bottom = padding_top;
+
+id.title = noone;
+id.title_y = id.y_center;
 </string>
           </argument>
         </arguments>
@@ -208,7 +234,9 @@ if (id.select) {
         script_execute(id.entries[id.v_selector].action);
     }
 } else if (id.back) {
-    scr_settings_menu_back();
+    if (id.back_action != noone) {
+        script_execute(id.back_action);
+    }
 } else if (id.right) {
     if (id.entries[id.v_selector].value != -1 &amp;&amp;
         id.entries[id.v_selector].value &lt; id.entries[id.v_selector].max_value) {
@@ -247,6 +275,12 @@ if (id.select) {
 // Set alignment.
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
+
+// Draw title.
+if (id.title != noone) {
+    draw_set_font(fnt_menu_title);
+    draw_text(id.x_center, id.title_y, string(id.title));
+}
 
 // Draw selector.
 draw_set_alpha(0.2);

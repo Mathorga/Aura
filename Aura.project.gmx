@@ -74,6 +74,7 @@
               <sprite>sprites\spr_iryo_right_walk_s</sprite>
               <sprite>sprites\spr_iryo_right_run_s</sprite>
             </sprites>
+            <sprite>sprites\spr_iryo_palette</sprite>
           </sprites>
         </sprites>
         <sprites name="Enemy">
@@ -938,7 +939,7 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_leave_grey.shader</shader>
     <shader type="GLSLES">shaders\shd_chromatic_aberration.shader</shader>
-    <shader type="GLSLES">shaders\shd_flip_colours.shader</shader>
+    <shader type="GLSLES">shaders\shd_flip_colors.shader</shader>
     <shader type="GLSLES">shaders\shd_invert_colors.shader</shader>
     <shader type="GLSLES">shaders\shd_sepia.shader</shader>
     <shader type="GLSLES">shaders\shd_motion_blur.shader</shader>
@@ -1059,16 +1060,16 @@
       <objects name="Menu">
         <object>objects\obj_menu_entry</object>
       </objects>
-      <object>objects\obj_global_s</object>
-      <object>objects\obj_camera_s</object>
       <objects name="Controllers">
         <object>objects\obj_start_menu_controller</object>
+        <object>objects\obj_start_menu_controller_new</object>
         <object>objects\obj_settings_menu_controller</object>
-        <object>objects\obj_settings_menu_controller_new</object>
         <object>objects\obj_shader_controller</object>
         <object>objects\obj_parallax_controller</object>
         <object>objects\obj_menu_controller_parent</object>
       </objects>
+      <object>objects\obj_global_s</object>
+      <object>objects\obj_camera_s</object>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>

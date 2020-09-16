@@ -51,23 +51,43 @@ event_inherited();
             <string>/// Entries
 
 id.entries[0] = instance_create(id.x_center, id.y, obj_menu_entry);
-id.entries[0].text = "Music Volume";
-id.entries[0].value = id.entries[0].default_value;
-id.entries[0].max_value = 10;
+id.entries[0].text = "Continue";
+id.entries[0].action = scr_start_menu_new_game;
 
 id.entries[1] = instance_create(id.x_center, id.y, obj_menu_entry);
-id.entries[1].text = "Effects Volume";
-id.entries[1].value = id.entries[0].default_value;
-id.entries[1].max_value = 10;
+id.entries[1].text = "New Game";
+id.entries[1].action = scr_start_menu_new_game;
 
 id.entries[2] = instance_create(id.x_center, id.y, obj_menu_entry);
-id.entries[2].text = "Graphics";
-id.entries[2].value = id.entries[0].default_value;
-id.entries[2].max_value = 3;
+id.entries[2].text = "Settings";
+id.entries[2].action = scr_start_menu_settings;
 
 id.entries[3] = instance_create(id.x_center, id.y, obj_menu_entry);
-id.entries[3].text = "Back";
-id.entries[3].action = scr_settings_menu_back;
+id.entries[3].text = "Quit";
+id.entries[3].action = scr_start_menu_quit;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Entry-free Actions
+
+id.back_action = scr_start_menu_quit;
 </string>
           </argument>
         </arguments>
@@ -92,13 +112,17 @@ id.entries[3].action = scr_settings_menu_back;
 
 id.entries_num = array_length_1d(id.entries);
 
-id.x_unit = room_width / 20;
-id.y_unit = (room_height - padding_top - padding_bottom) / id.entries_num;
+// 2 slots are taken by the title.
+var full_slots_num = 2;
 
-var full_slots_num = 0;
+id.x_unit = room_width / 20;
+id.y_unit = (room_height - padding_top - padding_bottom) / (id.entries_num + full_slots_num);
+
+id.title = "RUGHAI";
+id.title_y = y_unit * 1.5;
 
 // Coordinates of all menu entries.
-for (i = 0; i &lt; id.entries_num; i++) {
+for (i = 0; i &lt; entries_num; i++) {
     // Simplified (y_unit * full_slots_num) + (y_unit / 2)
     id.entries[i].y = y_unit * (full_slots_num + 0.5);
     id.entries[i].y += padding_top;
