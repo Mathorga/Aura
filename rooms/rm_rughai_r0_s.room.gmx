@@ -10,7 +10,11 @@
   <persistent>0</persistent>
   <colour>13415330</colour>
   <showcolour>0</showcolour>
-  <code>global.theme_sound = snd_rughai_main;</code>
+  <code>if (!instance_exists(obj_global_s)) {
+    instance_create(0, 0, obj_global_s);
+}
+
+global.theme_sound = snd_rughai_main;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>0</clearDisplayBuffer>

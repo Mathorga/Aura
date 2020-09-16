@@ -10,7 +10,11 @@
   <persistent>0</persistent>
   <colour>2763306</colour>
   <showcolour>-1</showcolour>
-  <code>global.theme_sound = snd_rughai_main;</code>
+  <code>if (!instance_exists(obj_global_s)) {
+    instance_create(0, 0, obj_global_s);
+}
+
+global.theme_sound = snd_rughai_main;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
@@ -51,7 +55,6 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_global_s" x="224" y="132" name="inst_6BCD7610" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_start_menu_controller" x="256" y="132" name="inst_F536220F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
