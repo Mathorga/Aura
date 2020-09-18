@@ -169,9 +169,6 @@
       <sprite>sprites\spr_parent_s</sprite>
       <sprite>sprites\spr_controller_s</sprite>
       <sprite>sprites\spr_menu_entry</sprite>
-      <sprites name="Masks">
-        <sprite>sprites\spr_mask_blur_circle</sprite>
-      </sprites>
     </sprites>
     <sprites name="Lifeforms">
       <sprites name="Player">
@@ -735,17 +732,25 @@
         <script>scripts\scr_set_shader_uniform.gml</script>
       </scripts>
       <scripts name="Saving">
-        <script>scripts\scr_save_game.gml</script>
-        <scripts name="Load">
-          <script>scripts\scr_load_game.gml</script>
-          <script>scripts\scr_load_room.gml</script>
-          <script>scripts\scr_load_characters.gml</script>
+        <scripts name="Old">
+          <script>scripts\scr_save_game.gml</script>
+          <scripts name="Load">
+            <script>scripts\scr_load_game.gml</script>
+            <script>scripts\scr_load_room.gml</script>
+            <script>scripts\scr_load_characters.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <scripts name="Pathfinding">
         <script>scripts\scr_astar.gml</script>
         <script>scripts\scr_bfs.gml</script>
         <script>scripts\scr_define_path.gml</script>
+      </scripts>
+      <scripts name="Settings">
+        <script>scripts\scr_save_settings.gml</script>
+        <script>scripts\scr_load_settings.gml</script>
+        <script>scripts\scr_apply_music_volume.gml</script>
+        <script>scripts\scr_apply_fx_volume.gml</script>
       </scripts>
       <scripts name="Debug">
         <script>scripts\scr_debug_print.gml</script>
@@ -919,8 +924,8 @@
     <scripts name="Menu">
       <scripts name="Start Menu">
         <scripts name="Input">
-          <script>scripts\scr_start_menu_gamepad.gml</script>
-          <script>scripts\scr_start_menu_keyboard.gml</script>
+          <script>scripts\scr_input_menu_gamepad.gml</script>
+          <script>scripts\scr_input_menu_keyboard.gml</script>
         </scripts>
         <script>scripts\scr_start_menu_quit.gml</script>
         <script>scripts\scr_start_menu_new_game.gml</script>
@@ -934,7 +939,7 @@
     <script>scripts\scr_draw_shadow.gml</script>
     <script>scripts\scr_enemy_draw_healthbar.gml</script>
     <script>scripts\scr_draw_surface.gml</script>
-    <scripts name="movement_and_collision">
+    <scripts name="____movement_and_collision">
       <script>scripts\movement_and_collision.gml</script>
       <script>scripts\wall_escape.gml</script>
     </scripts>

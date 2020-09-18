@@ -15,6 +15,9 @@ if (!instance_exists(obj_global_s)) {
     instance_create(0, 0, obj_global_s);
 }
 
+// Load settings.
+scr_load_settings();
+
 // Set theme sound.
 global.theme_sound = snd_rughai_main;</code>
   <enableViews>-1</enableViews>

@@ -109,6 +109,32 @@ id.padding_bottom = padding_top;
 
 id.title = noone;
 id.title_y = id.y_center;
+
+// Wait time for direction movement on continuous button press.
+id.direction_hold_delay = room_speed / 6;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Button Press Delay Alarm
 </string>
           </argument>
         </arguments>
@@ -134,9 +160,9 @@ id.title_y = id.y_center;
             <string>///Get Input
 
 if (gamepad_is_connected(0)) {
-    scr_start_menu_gamepad(0);
+    scr_input_menu_gamepad(0);
 } else {
-    scr_start_menu_keyboard();
+    scr_input_menu_keyboard();
 }
 </string>
           </argument>
@@ -160,13 +186,13 @@ if (gamepad_is_connected(0)) {
             <kind>1</kind>
             <string>///Selector Positions
 
-if (id.down) {
+if (id.down &amp;&amp; !id.up) {
     id.v_selector++;
     id.v_selector %= array_length_1d(id.entries);
     audio_play_sound(snd_menu_tick, 0, false);
 }
 
-if (id.up) {
+if (id.up &amp;&amp; !id.down) {
     id.v_selector--;
     if (id.v_selector &lt; 0) {
         id.v_selector = array_length_1d(id.entries) - 1;
@@ -175,11 +201,11 @@ if (id.up) {
     audio_play_sound(snd_menu_tick, 0, false);
 }
 
-if (id.left) {
+if (id.left &amp;&amp; !id.right) {
     id.h_selector--;
 }
 
-if (id.right) {
+if (id.right &amp;&amp; !id.left) {
     id.h_selector++;
 }
 </string>
@@ -236,18 +262,24 @@ if (id.select) {
         script_execute(id.entries[id.v_selector].action);
         audio_play_sound(snd_menu_tick, 0, false);
     }
-} else if (id.back) {
+}
+
+if (id.back) {
     if (id.back_action != noone) {
         script_execute(id.back_action);
         audio_play_sound(snd_menu_tick, 0, false);
     }
-} else if (id.right) {
+}
+
+if (id.right &amp;&amp; !id.left) {
     if (id.entries[id.v_selector].value != -1 &amp;&amp;
         id.entries[id.v_selector].value &lt; id.entries[id.v_selector].max_value) {
         id.entries[id.v_selector].value++;
         audio_play_sound(snd_menu_tick, 0, false);
     }
-} else if (id.left) {
+}
+
+if (id.left &amp;&amp; !id.right) {
     if (id.entries[id.v_selector].value != -1 &amp;&amp;
         id.entries[id.v_selector].value &gt; 0) {
         id.entries[id.v_selector].value--;

@@ -42,7 +42,7 @@ if (instance_exists(obj_player_parent)) {
     ds_map_destroy(save_data);
     save_string = base64_encode(save_string);
     
-    var save_file = file_text_open_write(working_directory + SAVE_NAME);
+    var save_file = file_text_open_write(working_directory + SAVE_FILE);
     file_text_write_string(save_file, save_string);
     file_text_close(save_file);
 }

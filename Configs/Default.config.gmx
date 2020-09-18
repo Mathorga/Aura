@@ -714,7 +714,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="48">
+    <constants number="49">
       <constant name="ATK_X_COST">2</constant>
       <constant name="ATK_Y_COST">3</constant>
       <constant name="ROLL_COST">5</constant>
@@ -750,7 +750,8 @@
       <constant name="ATK_5_1">19</constant>
       <constant name="CORPSE">20</constant>
       <constant name="START_SHIFT">60</constant>
-      <constant name="SAVE_NAME">"rughai.sav"</constant>
+      <constant name="SAVE_FILE">"rughai.sav"</constant>
+      <constant name="SETTINGS_FILE">"settings.sav"</constant>
       <constant name="SLIME_GREEN">make_colour_hsv(70, 120, 150)</constant>
       <constant name="RING">0</constant>
       <constant name="ACCESSORY">1</constant>

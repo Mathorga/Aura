@@ -52,18 +52,18 @@ event_inherited();
 
 id.entries[0] = instance_create(id.x_center, id.y, obj_menu_entry);
 id.entries[0].text = "Music Volume";
-id.entries[0].value = id.entries[0].default_value;
 id.entries[0].max_value = 10;
+id.entries[0].value = global.volume_music * id.entries[0].max_value;
 
 id.entries[1] = instance_create(id.x_center, id.y, obj_menu_entry);
 id.entries[1].text = "Effects Volume";
-id.entries[1].value = id.entries[0].default_value;
 id.entries[1].max_value = 10;
+id.entries[1].value = global.volume_fx * id.entries[1].max_value;
 
 id.entries[2] = instance_create(id.x_center, id.y, obj_menu_entry);
 id.entries[2].text = "Graphics";
-id.entries[2].value = id.entries[0].default_value;
 id.entries[2].max_value = 3;
+id.entries[2].value = id.entries[0].default_value;
 
 id.entries[3] = instance_create(id.x_center, id.y, obj_menu_entry);
 id.entries[3].text = "Back";
@@ -204,33 +204,20 @@ event_inherited();
             <kind>1</kind>
             <string>/// Set FX Volume
 
-// Music sounds.
-audio_sound_gain(snd_rughai_main, id.entries[0].value / id.entries[0].max_value, 0);
-//TODO Others.
+// Only update global setting if changed.
+if (global.volume_music != id.entries[0].value / id.entries[0].max_value) {
+    global.volume_music = id.entries[0].value / id.entries[0].max_value;
 
-// Effects sounds.
-audio_sound_gain(snd_menu_tick, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_1, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_2, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_3, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_4, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_5, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_6, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_7, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_8, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_9, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_10, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_11, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_12, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_13, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_14, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_15, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_16, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_17, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_18, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_19, id.entries[1].value / id.entries[1].max_value, 0);
-audio_sound_gain(snd_footstep_snow_20, id.entries[1].value / id.entries[1].max_value, 0);
-//TODO Others.
+    // Music sounds.
+    scr_apply_music_volume();
+}
+
+if (global.volume_fx != id.entries[1].value / id.entries[1].max_value) {
+    global.volume_fx = id.entries[1].value / id.entries[1].max_value;
+
+    // Effects sounds.
+    scr_apply_fx_volume();
+}
 </string>
           </argument>
         </arguments>
