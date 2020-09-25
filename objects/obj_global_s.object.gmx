@@ -148,7 +148,7 @@ global.shader_c = shd_gaussian_blur;
             <kind>1</kind>
             <string>///Debug
 
-global.debug = false;
+global.debug = true;
 </string>
           </argument>
         </arguments>

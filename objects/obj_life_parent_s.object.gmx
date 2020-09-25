@@ -243,6 +243,29 @@ scr_find_depth();
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Damage Collision
+
+//TODO
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Behavior
 
 // Initialize climbing flag.
@@ -336,8 +359,9 @@ if (self.state == scr_drown_state || self.state == scr_fall_state) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw Self Falling
+            <string>/// Draw Self
 
+// Check if fall or drown state in order to properly draw self.
 if (self.state == self.fall_state || self.state == self.drown_state) {
     //draw_set_alpha(self.hor_fall_spd);
     var scale = scr_map(0, 2 * self.walk_spd, self.hor_fall_spd, 0.8, 1);

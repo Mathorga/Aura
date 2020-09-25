@@ -76,7 +76,7 @@ id.back = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Entri-free Actions
+            <string>/// Entry-free Actions
 
 id.back_action = noone;
 </string>
