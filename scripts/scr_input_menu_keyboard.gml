@@ -1,10 +1,12 @@
 ///scr_input_menu_keyboard()
 
 // Set directions to false in order not to have them pressed indefinitely for the duration of the alarm.
-id.right = false;
+/*id.right = false;
 id.left = false;
 id.up = false;
 id.down = false;
+id.select = false;
+id.back = false;*/
 
 // Directions.
 if (keyboard_check_released(vk_right) ||

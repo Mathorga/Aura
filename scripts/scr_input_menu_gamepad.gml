@@ -6,10 +6,12 @@ var device = argument0;
 gamepad_set_axis_deadzone(device, ANALOG_DEADZONE / 2);
 
 // Set directions to false in order not to have them pressed indefinitely for the duration of the alarm.
-id.right = false;
+/*id.right = false;
 id.left = false;
 id.up = false;
 id.down = false;
+id.select = false;
+id.back = false;*/
 
 // Directions.
 if (gamepad_button_check_released(device, gp_padr) ||

@@ -922,11 +922,12 @@
       <script>scripts\scr_part_init_snow.gml</script>
     </scripts>
     <scripts name="Menu">
+      <scripts name="Input">
+        <script>scripts\scr_input_menu_gamepad.gml</script>
+        <script>scripts\scr_input_menu_keyboard.gml</script>
+        <script>scripts\scr_input_clear_menu.gml</script>
+      </scripts>
       <scripts name="Start Menu">
-        <scripts name="Input">
-          <script>scripts\scr_input_menu_gamepad.gml</script>
-          <script>scripts\scr_input_menu_keyboard.gml</script>
-        </scripts>
         <script>scripts\scr_start_menu_quit.gml</script>
         <script>scripts\scr_start_menu_new_game.gml</script>
         <script>scripts\scr_start_menu_settings.gml</script>

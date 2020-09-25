@@ -59,8 +59,8 @@ id.door = false;
 id.alpha = clamp(id.alpha + (id.fade * id.fade_speed), 0, 1);
 
 if (id.alpha == 1) {
-    if (room == global.rm) {
-        room_restart();
+    if (global.rm == noone) {
+        game_end();
     } else {
         room_goto(global.rm);
     }
