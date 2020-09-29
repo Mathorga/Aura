@@ -94,8 +94,17 @@ global.theme_sound = noone;
             <kind>1</kind>
             <string>/// Settings
 
+// Sound
 global.volume_music = 0.5;
 global.volume_fx = 0.5;
+
+// Graphics
+global.shaders_enabled = true;
+
+// Default shaders.
+global.shader_a = shd_chromatic_aberration;
+global.shader_b = shd_ambient_rughai;
+global.shader_c = shd_gaussian_blur;
 </string>
           </argument>
         </arguments>
@@ -119,13 +128,8 @@ global.volume_fx = 0.5;
             <string>///Graphics
 
 // Buffer surface to use multiple shaders.
-global.buffer = surface_create(display_get_width(), display_get_height());
-global.shaders_enabled = true;
-
-// Default shaders.
-global.shader_a = shd_chromatic_aberration;
-global.shader_b = shd_ambient_rughai;
-global.shader_c = shd_gaussian_blur;
+//global.buffer = surface_create(display_get_width(), display_get_height());
+//global.buffer = surface_create(view_wview[0], view_hview[0]);
 </string>
           </argument>
         </arguments>
@@ -326,9 +330,9 @@ self.alarm[0] = 10;
             <kind>1</kind>
             <string>/// Regenerate Buffer Surface
 
-if (!surface_exists(global.buffer)) {
+/*if (!surface_exists(global.buffer)) {
     global.buffer = surface_create(display_get_width(), display_get_height());
-}
+}*/
 </string>
           </argument>
         </arguments>

@@ -245,7 +245,51 @@ scr_find_depth();
             <kind>1</kind>
             <string>/// Damage Collision
 
-//TODO
+// Check collision with damage objects.
+var damage = instance_place(id.x, id.y, obj_damage_s);
+
+if (damage != noone) {
+    if (instance_exists(damage.creator)) {
+        // Ensure the damage doesn't come from self.
+        if (damage.creator != id) {
+            // Take damage.
+            id.hp -= damage.damage;
+            
+            if (damage.critical) {
+                //TODO Show critical effect.
+                spec = instance_create(damage.x, damage.y, obj_special_damage);
+                spec.crit = true;
+            } else if (damage.fail) {
+                //TODO Show fail effect.
+                spec = instance_create(damage.x, damage.y, obj_special_damage);
+                spec.crit = false;
+            }
+        
+            // Knockback.
+            if (instance_exists(damage.creator)) {
+                var dir = point_direction(damage.creator.x, damage.creator.y, damage.x, damage.y);
+            } else {
+                var dir = point_direction(x, y, damage.x, damage.y);
+            }
+            
+            // Apply knockback.
+            /*
+            var xforce = lengthdir_x(damage.knockback, dir);
+            var yforce = lengthdir_y(damage.knockback, dir);
+            physics_apply_impulse(damage.x, damage.y, xforce, yforce);
+            */
+            
+            // Blood particles.
+            /*
+            part_system_depth(global.ps_spreading, self.owner.depth);
+            part_particles_create(global.ps_spreading, x, y, global.pt_blood, 8);
+            */
+            
+            // Blood object.
+            var blood = instance_create(x, y, obj_blood);
+        }
+    }
+}
 </string>
           </argument>
         </arguments>

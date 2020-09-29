@@ -44,13 +44,17 @@ id.shift_spd = 80;
 id.dir = target.dir;
 id.last_dir = dir;
 
-//input
+// Input.
 id.device = id.target.device;
 id.deadzone = 0.2;
 id.lock = 0;
 id.c_switch = 0;
 id.hor = 0;
 id.ver = 0;
+
+// Camera shake.
+id.shake_multiplier = 5;
+id.shake_fade_speed = 0.02;
 
 // View
 id.view_spd = 2 / room_speed;
@@ -288,6 +292,41 @@ if (instance_exists(obj_spawn_controller)) {
     obj_spawn_controller.x = id.x;
     obj_spawn_controller.y = id.y;
 }*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Camera Shake
+
+// Camera shaking.
+if (global.shake_intensity &gt; 0) {
+    if (global.camera != noone) {
+        var shake = global.shake_intensity * id.shake_multiplier;
+        //id.x += choose(random(shake), random(-shake));
+        //id.y += choose(random(shake), random(-shake));
+        view_xview[0] += choose(random(shake), random(-shake));
+        view_yview[0] += choose(random(shake), random(-shake));
+    }
+    global.shake_intensity -= id.shake_fade_speed;
+} else if (global.shake_intensity &lt; 0) {
+    global.shake_intensity = 0;
+}
 </string>
           </argument>
         </arguments>

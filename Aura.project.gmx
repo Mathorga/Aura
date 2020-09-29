@@ -1081,6 +1081,7 @@
       </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
+      <object>objects\obj_damage_s</object>
     </objects>
     <objects name="Lifeforms">
       <object>objects\obj_lifeform_parent</object>

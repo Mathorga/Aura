@@ -456,16 +456,6 @@ if (nearest_enemy == noone) {
     nearest_enemy = instance_nearest(x, y, obj_enemy_parent);
 }
 
-// Camera shaking.
-if (global.shake_intensity &gt; 0) {
-    var shake = global.shake_intensity * 5;
-    obj_view.x += choose(random(shake), random(-shake));
-    obj_view.y += choose(random(shake), random(-shake));
-    global.shake_intensity -= 0.02;
-} else if (global.shake_intensity &lt; 0) {
-    global.shake_intensity = 0;
-}
-
 if (id.mobility) {
     scr_player_control_mode();
 }
@@ -496,6 +486,44 @@ if (hp &lt;= 0) {
     shake_intensity = 5;
     alarm[1] = 0.2 * room_speed;
     instance_create(view_xview, view_yview, obj_white_screen);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Damage Collision
+
+// Check for collision with damage objects.
+var damage = instance_place(id.x, id.y, obj_damage_s);
+
+if (damage != noone) {
+    if (instance_exists(damage.creator)) {
+        // Ensure the damage doesn't come from self.
+        if (damage.creator != id) {
+            // All damage management is handled in the common life parent, so there's only need for
+            // screen shake.
+            
+            // Set global shake (used for things such as chromatic aberration).
+            global.shake_intensity = 1;
+            id.alarm[1] = 0.2 * room_speed;
+        }
+    }
 }
 </string>
           </argument>
