@@ -1078,6 +1078,7 @@
         <object>objects\obj_shader_controller</object>
         <object>objects\obj_parallax_controller</object>
         <object>objects\obj_theme_controller</object>
+        <object>objects\obj_particle_controller</object>
       </objects>
       <object>objects\obj_global_s</object>
       <object>objects\obj_camera_s</object>
@@ -1355,7 +1356,6 @@
         <object>objects\obj_inventory_controller</object>
         <object>objects\obj_score_controller</object>
         <object>objects\obj_spawn_controller</object>
-        <object>objects\obj_particle_controller</object>
       </objects>
       <object>objects\obj_debug</object>
       <object>objects\obj_item_slot</object>

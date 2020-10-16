@@ -48,6 +48,10 @@ scr_part_init_slime_blood();
 
 //Initialize Snow Particles
 scr_part_init_snow();
+var emitter = part_emitter_create(global.ps_falling);
+part_emitter_region(global.ps_falling, emitter, 0, room_width + room_width, 0 - room_height, room_height, ps_shape_rectangle, ps_distr_linear);
+//part_emitter_burst(global.ps_falling, emitter, global.pt_snow, 10);
+part_emitter_stream(global.ps_falling, emitter, global.pt_snow, 40);
 </string>
           </argument>
         </arguments>
