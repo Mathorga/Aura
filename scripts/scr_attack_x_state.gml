@@ -27,11 +27,12 @@ if (image_index == 2 && !attacked) {
             break; 
     }
     var damage;
-    if (on_alt_floor) {
+    /*if (on_alt_floor) {
         damage = instance_create(xx, yy, obj_alt_damage);
     } else {
         damage = instance_create(xx, yy, obj_main_damage);
-    }
+    }*/
+    damage = instance_create(xx, yy, obj_damage_s);
     damage.alarm[0] = 5;
     damage.creator = id;
     if (scr_chance(crit_rate)) {

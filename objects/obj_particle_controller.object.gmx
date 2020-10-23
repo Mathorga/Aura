@@ -2,7 +2,7 @@
 <object>
   <spriteName>spr_controller_s</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>-9000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>///Create the Particle Systems
 
+part_system_destroy(global.ps_spreading);
+part_system_destroy(global.ps_standing);
+part_system_destroy(global.ps_falling);
 global.ps_spreading = part_system_create();
 global.ps_standing = part_system_create();
 global.ps_falling = part_system_create();
@@ -141,9 +144,13 @@ part_type_destroy(global.pt_blood_stains);
 part_type_destroy(global.pt_slime_blood);
 part_type_destroy(global.pt_slime_blood_stains);
 part_type_destroy(global.pt_snow);
+
+scr_debug_print("Distrugging");
 part_system_destroy(global.ps_spreading);
 part_system_destroy(global.ps_standing);
+scr_debug_print("Primero " + string(global.ps_falling));
 part_system_destroy(global.ps_falling);
+scr_debug_print("Despues " + string(global.ps_falling));
 </string>
           </argument>
         </arguments>

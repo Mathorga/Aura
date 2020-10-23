@@ -28,4 +28,12 @@ if (shader == shd_chromatic_aberration) {
     shader_set_uniform_f(gaussian_blur_center,
                          center_x,
                          center_y);
+    
+    if (global.ambient == AMBIENT_SAFE) {
+        shader_set_uniform_f(gaussian_blur_intensity,
+                             2.0);
+    } else {
+        shader_set_uniform_f(gaussian_blur_intensity,
+                             6.0);
+    }
 }

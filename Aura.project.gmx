@@ -950,10 +950,13 @@
     <shader type="GLSLES">shaders\shd_chromatic_aberration.shader</shader>
     <shader type="GLSLES">shaders\shd_flip_colors.shader</shader>
     <shader type="GLSLES">shaders\shd_invert_colors.shader</shader>
-    <shader type="GLSLES">shaders\shd_sepia.shader</shader>
+    <shaders name="Ambient">
+      <shader type="GLSLES">shaders\shd_ambient_rughai.shader</shader>
+      <shader type="GLSLES">shaders\shd_ambient_rughai_snowstorm.shader</shader>
+      <shader type="GLSLES">shaders\shd_darkness.shader</shader>
+      <shader type="GLSLES">shaders\shd_sepia.shader</shader>
+    </shaders>
     <shader type="GLSLES">shaders\shd_motion_blur.shader</shader>
-    <shader type="GLSLES">shaders\shd_darkness.shader</shader>
-    <shader type="GLSLES">shaders\shd_ambient_rughai.shader</shader>
     <shader type="GLSLES">shaders\shd_gaussian_blur.shader</shader>
   </shaders>
   <fonts name="fonts">
@@ -988,10 +991,17 @@
       <objects name="Prop">
         <object>objects\obj_prop_parent_s</object>
         <object>objects\obj_prop_solid_parent_s</object>
+        <object>objects\obj_prop_breakable_parent</object>
         <objects name="Rughai">
           <objects name="Interacting">
             <objects name="Chest">
               <object>objects\obj_chest_0_s</object>
+            </objects>
+          </objects>
+          <objects name="Breakable">
+            <objects name="Barrel">
+              <object>objects\obj_barrel_0_s</object>
+              <object>objects\obj_barrel_1_s</object>
             </objects>
           </objects>
           <objects name="Bone">
@@ -1025,10 +1035,6 @@
             <object>objects\obj_tent_0_down_s</object>
             <object>objects\obj_tent_0_left_s</object>
             <object>objects\obj_tent_1_down_s</object>
-          </objects>
-          <objects name="Barrel">
-            <object>objects\obj_barrel_0_s</object>
-            <object>objects\obj_barrel_1_s</object>
           </objects>
           <objects name="Log">
             <object>objects\obj_log_0_s</object>

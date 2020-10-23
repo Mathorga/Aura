@@ -78,6 +78,95 @@ self.image_speed = 10 / room_speed;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Init Particles
+
+id.part_system = part_system_create();
+part_system_depth(id.part_system, id.depth - 1);
+
+id.part_type = part_type_create();
+
+part_type_shape(id.part_type, pt_shape_square);
+part_type_size(id.part_type, 0.02, 0.04, 0, 0);
+part_type_colour3(id.part_type, c_yellow, c_orange, c_red);
+part_type_alpha3(id.part_type, 0.0, 0.8, 0.4);
+part_type_speed(id.part_type, 0.5, 2.4, -0.05, 0);
+part_type_direction(id.part_type, 30, 150, 0, 0);
+part_type_gravity(id.part_type, 0.05, 270);
+part_type_life(id.part_type, 25, 50);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Create Particles
+
+part_particles_create(id.part_system,
+                      id.x + TILE_WIDTH / 2,
+                      id.y + TILE_HEIGHT / 2,
+                      id.part_type,
+                      1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy Particle System.
+
+part_system_destroy(id.part_system);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>

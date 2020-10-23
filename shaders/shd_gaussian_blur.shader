@@ -27,6 +27,7 @@ varying vec3 v_vPosition;
 
 uniform vec2 screenSize;
 uniform vec2 center;
+uniform float intensity;
 
 const int Quality = 6;
 const int Directions = 6;
@@ -36,7 +37,8 @@ const float Pi = 6.28318530718;
 const float Radius = 0.6;
 const float MinRadius = 0.2;
 const float MaxRadius = 0.7;
-const float MaxBlur = 6.0;
+//const float MaxBlur = 6.0;
+float MaxBlur = intensity;
 
 void main()
 {

@@ -72,6 +72,37 @@ surface_resize(application_surface, window_get_width(), window_get_height());
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// Set Shaders According to Ambient.
+
+if (global.ambient == AMBIENT_SNOWSTORM) {
+    global.shader_a = shd_chromatic_aberration;
+    global.shader_b = shd_ambient_rughai_snowstorm;
+    global.shader_c = shd_gaussian_blur;
+} else {
+    global.shader_a = shd_chromatic_aberration;
+    global.shader_b = shd_ambient_rughai;
+    global.shader_c = shd_gaussian_blur;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>///Get the Shaders' Parameters
 
 // Chromatic aberration.
@@ -81,6 +112,7 @@ motion_blur_origin = shader_get_uniform(shd_motion_blur, "origin");
 // Gaussian blur.
 gaussian_blur_screen_size = shader_get_uniform(shd_gaussian_blur, "screenSize");
 gaussian_blur_center = shader_get_uniform(shd_gaussian_blur, "center");
+gaussian_blur_intensity = shader_get_uniform(shd_gaussian_blur, "intensity");
 </string>
           </argument>
         </arguments>
