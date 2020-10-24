@@ -25,29 +25,35 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Create the Particle Systems
+            <string>///Create Particle Systems
 
-part_system_destroy(global.ps_spreading);
-part_system_destroy(global.ps_standing);
-part_system_destroy(global.ps_falling);
-global.ps_spreading = part_system_create();
-global.ps_standing = part_system_create();
-global.ps_falling = part_system_create();
+if (!part_system_exists(global.ps_spreading)) {
+    global.ps_spreading = part_system_create();
+}
+
+if (!part_system_exists(global.ps_standing)) {
+    global.ps_standing = part_system_create();
+}
+
+if (!part_system_exists(global.ps_falling)) {
+    global.ps_falling = part_system_create();
+}
 
 part_system_depth(global.ps_spreading, id.depth);
 part_system_depth(global.ps_standing, id.depth);
 part_system_depth(global.ps_falling, -9999);
 
 // Initialize Fire Particles
-scr_part_init_fire();
+//scr_part_init_fire();
+scr_part_init_fireflies();
 
 // Initialize Blood Particles
-scr_part_init_blood_stains();
-scr_part_init_blood();
+//scr_part_init_blood_stains();
+//scr_part_init_blood();
 
 // Initialize Slime Blood Particles
-scr_part_init_slime_blood_stains();
-scr_part_init_slime_blood();
+//scr_part_init_slime_blood_stains();
+//scr_part_init_slime_blood();
 
 // Initialize Snow Particles
 scr_part_init_snow();
@@ -75,8 +81,8 @@ scr_part_init_snow();
 
 if (global.ambient == AMBIENT_SNOWSTORM) {
     id.snow_emitter = part_emitter_create(global.ps_falling);
-    part_emitter_region(global.ps_falling, id.snow_emitter, view_xview[0], view_xview[0] + view_wview[0], view_yview[0], view_hview[0], ps_shape_rectangle, ps_distr_linear);
-    part_emitter_stream(global.ps_falling, id.snow_emitter, global.pt_snow, 15);
+    //part_emitter_region(global.ps_falling, id.snow_emitter, view_xview[0], view_xview[0] + view_wview[0], view_yview[0], view_hview[0], ps_shape_rectangle, ps_distr_linear);
+    //part_emitter_stream(global.ps_falling, id.snow_emitter, global.pt_snow, 15);
 }
 </string>
           </argument>
@@ -111,6 +117,7 @@ if (global.ambient == AMBIENT_SNOWSTORM) {
                         view_yview[0] + view_hview[0],
                         ps_shape_rectangle,
                         ps_distr_linear);
+    part_emitter_burst(global.ps_falling, id.snow_emitter, global.pt_snow, 15);
 }
 id.x = view_xview[0] + view_wview[0] / 2;
 id.y = view_yview[0] + view_hview[0] / 2;
@@ -138,19 +145,19 @@ id.y = view_yview[0] + view_hview[0] / 2;
             <kind>1</kind>
             <string>/// Destroy Particle Systems and Types
 
+part_system_clear(global.ps_spreading);
+part_system_clear(global.ps_standing);
+part_system_clear(global.ps_falling);
+part_system_destroy(global.ps_spreading);
+part_system_destroy(global.ps_standing);
+part_system_destroy(global.ps_falling);
+
 part_type_destroy(global.pt_fire);
 part_type_destroy(global.pt_blood);
 part_type_destroy(global.pt_blood_stains);
 part_type_destroy(global.pt_slime_blood);
 part_type_destroy(global.pt_slime_blood_stains);
 part_type_destroy(global.pt_snow);
-
-scr_debug_print("Distrugging");
-part_system_destroy(global.ps_spreading);
-part_system_destroy(global.ps_standing);
-scr_debug_print("Primero " + string(global.ps_falling));
-part_system_destroy(global.ps_falling);
-scr_debug_print("Despues " + string(global.ps_falling));
 </string>
           </argument>
         </arguments>

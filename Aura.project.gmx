@@ -915,6 +915,7 @@
     </scripts>
     <scripts name="Particles">
       <script>scripts\scr_part_init_fire.gml</script>
+      <script>scripts\scr_part_init_fireflies.gml</script>
       <script>scripts\scr_part_init_blood.gml</script>
       <script>scripts\scr_part_init_blood_stains.gml</script>
       <script>scripts\scr_part_init_slime_blood.gml</script>

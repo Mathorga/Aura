@@ -1,6 +1,9 @@
 ///scr_part_init_snow()
 
-global.pt_snow = part_type_create();
+if (!part_type_exists(global.pt_snow)) {
+    global.pt_snow = part_type_create();
+}
+
 var pt = global.pt_snow;
 //var snow_emitter = part_emitter_create(global.ps_falling);
 //part_emitter_stream(global.ps_falling, snow_emitter, pt, 10);

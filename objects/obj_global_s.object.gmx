@@ -25,31 +25,6 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Define Particle System
-
-global.ps_spreading = noone;
-global.ps_standing = noone;
-global.ps_falling = noone;
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>///General
 
 /*
@@ -74,6 +49,41 @@ global.shake_intensity = 0;
 global.on_alt_floor = false;
 
 global.A_signal = noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Particle Systems and Types
+
+// Particle systems.
+global.ps_spreading = noone;
+global.ps_standing = noone;
+global.ps_falling = noone;
+
+// Particle types.
+global.pt_fire = noone;
+global.pt_fireflies = noone;
+global.pt_blood = noone;
+global.pt_blood_stains = noone;
+global.pt_slime_blood = noone;
+global.pt_slime_blood_stains = noone;
+global.pt_snow = noone;
 </string>
           </argument>
         </arguments>
@@ -224,7 +234,7 @@ global.debug = true;
             <string>/// Create Debug
 
 if (!instance_exists(obj_debug) &amp;&amp; global.debug) {
-    instance_create(x, y, obj_debug);
+    global.debug_controller = instance_create(x, y, obj_debug);
 }
 </string>
           </argument>
@@ -433,19 +443,26 @@ self.alarm[0] = 10;
 if (global.theme_controller != noone) {
     global.theme_controller.x = id.x;
     global.theme_controller.y = id.y;
-}/*
+}
 if (global.shaders_enabled &amp;&amp; global.shader_controller != noone) {
     global.shader_controller.x = id.x;
     global.shader_controller.y = id.y;
 }
+if (global.debug &amp;&amp; global.debug_controller != noone) {
+    global.debug_controller.x = id.x;
+    global.debug_controller.y = id.y;
+}
+/*
 if (global.parallax_controller != noone) {
     global.parallax_controller.x = id.x;
     global.parallax_controller.y = id.y;
 }
+*/
 if (global.particle_controller != noone) {
     global.particle_controller.x = id.x;
     global.particle_controller.y = id.y;
 }
+/*
 if (global.score_controller != noone) {
     global.score_controller.x = id.x;
     global.score_controller.y = id.y;

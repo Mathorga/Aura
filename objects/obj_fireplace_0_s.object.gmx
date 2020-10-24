@@ -98,8 +98,9 @@ self.image_speed = 10 / room_speed;
 
 id.part_system = part_system_create();
 part_system_depth(id.part_system, id.depth - 1);
-
+/*
 id.part_type = part_type_create();
+scr_debug_print("FIRE " + string(id.part_type));
 
 part_type_shape(id.part_type, pt_shape_square);
 part_type_size(id.part_type, 0.02, 0.04, 0, 0);
@@ -109,6 +110,7 @@ part_type_speed(id.part_type, 0.5, 2.4, -0.05, 0);
 part_type_direction(id.part_type, 30, 150, 0, 0);
 part_type_gravity(id.part_type, 0.05, 270);
 part_type_life(id.part_type, 25, 50);
+*/
 </string>
           </argument>
         </arguments>
@@ -136,7 +138,7 @@ part_type_life(id.part_type, 25, 50);
 part_particles_create(id.part_system,
                       id.x + TILE_WIDTH / 2,
                       id.y + TILE_HEIGHT / 2,
-                      id.part_type,
+                      global.pt_fireflies,
                       1);
 </string>
           </argument>

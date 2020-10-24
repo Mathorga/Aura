@@ -1,6 +1,9 @@
 ///scr_part_init_fire()
 
-global.pt_fire = part_type_create();
+if (!part_type_exists(global.pt_fire)) {
+    global.pt_fire = part_type_create();
+}
+
 var pt = global.pt_fire;
 
 //Fire Settings

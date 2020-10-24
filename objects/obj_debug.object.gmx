@@ -156,11 +156,13 @@ if (instance_exists(global.active_character.mate)) {
             <kind>1</kind>
             <string>/// Draw Framerate
 
-/*draw_set_font(fnt_debug);
+draw_set_font(fnt_debug);
 draw_set_colour(c_yellow);
 
-draw_text_transformed(32, 44, string(fps), 3, 3, 0);
-draw_text_transformed(32, 88, string(fps_real), 3, 3, 0);*/
+draw_text_transformed(32, 44, "fps " + string(fps), 2, 2, 0);
+draw_text_transformed(32, 88, "fps_real " + string(fps_real), 2, 2, 0);
+
+draw_set_colour(c_white);
 </string>
           </argument>
         </arguments>
